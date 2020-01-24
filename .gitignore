@@ -1,0 +1,8 @@
+/target/
+/test-output/
+
+.metadata/
+.settings/org.testng.eclipse.maven.prefs
+
+
+
