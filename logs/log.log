@@ -1,4 +1,0 @@
-2020-01-24 12:39:10 INFO  WebDriverManager:1140 - Reading https://api.github.com/repos/mozilla/geckodriver/releases to seek geckodriver
-2020-01-24 12:39:11 INFO  WebDriverManager:984 - Latest version of geckodriver is 0.26.0
-2020-01-24 12:39:11 INFO  Downloader:167 - Using binary driver previously downloaded
-2020-01-24 12:39:11 INFO  WebDriverManager:1113 - Exporting webdriver.gecko.driver as C:\Users\Group10.G10GGNLT052\.m2\repository\webdriver\geckodriver\win64\0.26.0\geckodriver.exe

@@ -921,8 +921,6 @@ public class CommonMethod extends BaseClass {
 	}
 
 	
-	
-	
 	public static void poll(long milis) {
 		try {
 			Thread.sleep(milis);
