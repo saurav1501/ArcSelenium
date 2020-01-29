@@ -62,9 +62,8 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 						+ "Exception Occured : Click to see All Exception Logs->" + "</font>" + "</b >" + "</summary>"
 						+ excepionMessage.replaceAll(",", "<br>") + "</details>" + " \n");
 
-		String path = System.getProperty("user.dir") + File.separator + "Reports"+File.separator + "Screenshots" + File.separator
-				+ result.getTestClass().getName()
-				+ result.getMethod().getMethodName().replace(":", "_").replace(" ", "_") + ".png";
+		String path = System.getProperty("user.dir")+"/Reports/Screenshots/" +result.getTestClass().getName()
+				+ result.getMethod().getMethodName() + ".png";
 
 		/*
 		 * try {
@@ -85,11 +84,12 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 
 		}
 		try {
-
-			testLog.get()
+			String jenkinsScreenshot = "https://test.usgbc.org/job/ArcSelenium/ws/Reports/Screenshots/"+result.getTestClass().getName()
+					+ result.getMethod().getMethodName() + ".png";
+            	testLog.get()
 					.fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
 							+ "Screenshot of failure : Click to see the Failure Image ->" + "</font>" + "</b>"
-							+ "</summary>" + "<a href=" + path + "><img height=500 width=300 target=_blank src=" + path
+							+ "</summary>" + "<a href=" + jenkinsScreenshot + "><img height=500 width=300 target=_blank src=" + path
 							+ "></a>" + "</details>");
 
 		} catch (Exception e) {
