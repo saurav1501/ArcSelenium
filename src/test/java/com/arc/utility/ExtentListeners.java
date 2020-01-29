@@ -75,7 +75,7 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 		 * .build()); } catch (IOException e) {
 		 */
 
-		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000))
+		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(500))
 				.takeScreenshot(driver);
 		try {
 			ImageIO.write(screenshot.getImage(), "png", new File(path));
@@ -89,7 +89,7 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 			testLog.get()
 					.fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
 							+ "Screenshot of failure : Click to see the Failure Image ->" + "</font>" + "</b>"
-							+ "</summary>" + "<a href=" + path + "><img height=1500 width=650 target=_blank src=" + path
+							+ "</summary>" + "<a href=" + path + "><img height=500 width=300 target=_blank src=" + path
 							+ "></a>" + "</details>");
 
 		} catch (Exception e) {
