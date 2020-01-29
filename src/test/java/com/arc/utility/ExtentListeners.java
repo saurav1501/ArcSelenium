@@ -74,7 +74,7 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 		 * .build()); } catch (IOException e) {
 		 */
 
-		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(500))
+		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(700))
 				.takeScreenshot(driver);
 		try {
 			ImageIO.write(screenshot.getImage(), "png", new File(path));
@@ -84,22 +84,27 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 
 		}
 		try {
-			String jenkinsScreenshot = "https://test.usgbc.org/job/ArcSelenium/ws/Reports/Screenshots/"+result.getTestClass().getName()
-					+ result.getMethod().getMethodName() + ".png";
-            /*	testLog.get()
-					.fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
+			
+			if(System.getenv("user.dir").equalsIgnoreCase("https://test.usgbc.org/var/lib/jenkins/workspace/ArcSelenium"));
+			{
+			String jenkinsScreenshot = "https://test.usgbc.org/job/ArcSelenium/ws/Reports/Screenshots/"+result.getTestClass().getName()+ result.getMethod().getMethodName() + ".png";
+            testLog.get().fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
 							+ "Screenshot of failure : Click to see the Failure Image ->" + "</font>" + "</b>"
-							+ "</summary>" + "<a href=" + jenkinsScreenshot + "><img height=500 width=300 target=_blank src=" + path
+							+ "</summary>" + "<a href=" + jenkinsScreenshot + "><img height=600 width=400 target=_blank src=" + jenkinsScreenshot
 							+ "></a>" + "</details>");
-*/
-            	
-            	testLog.get()
+			} 
+			
+			if(System.getenv("user.dir").equalsIgnoreCase("D:/worksapceNew/ArcTest"));
+			{
+            testLog.get()
 				.fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
 						+ "Screenshot of failure : Click to see the Failure Image ->" + "</font>" + "</b>"
-						+ "</summary>" + "<a href=" + jenkinsScreenshot + "><img height=500 width=300 target=_blank src=" + jenkinsScreenshot
+						+ "</summary>" + "<a href=" + path + "><img height=500 width=300 target=_blank src=" + path
 						+ "></a>" + "</details>");
-
-		} catch (Exception e) {
+			}
+		
+		
+		}catch (Exception e) {
 			e.printStackTrace();
 			testLog.get().fail(e);
 		}
