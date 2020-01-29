@@ -85,25 +85,22 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 		}
 		try {
 			
-			if(System.getProperty("user.dir").equalsIgnoreCase("https://test.usgbc.org/var/lib/jenkins/workspace/ArcSelenium"));
-					//"https://test.usgbc.org/var/lib/jenkins/workspace/ArcSelenium");
-			{
+			if(System.getProperty("os.name").equalsIgnoreCase("Linux")){					
 			String jenkinsScreenshot = "https://test.usgbc.org/job/ArcSelenium/ws/Reports/Screenshots/"+result.getTestClass().getName()+ result.getMethod().getMethodName() + ".png";
             testLog.get().fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
 							+ "Screenshot of failure : Click to see the Failure Image ->" + "</font>" + "</b>"
 							+ "</summary>" + "<a href=" + jenkinsScreenshot + "><img height=600 width=400 target=_blank src=" + jenkinsScreenshot
 							+ "></a>" + "</details>");
 			} 
-			
-			if(System.getProperty("user.dir").equals("D:/worksapceNew/ArcTest"));
-			{
+		else
+			{					
             testLog.get()
 				.fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
 						+ "Screenshot of failure : Click to see the Failure Image ->" + "</font>" + "</b>"
 						+ "</summary>" + "<a href=" + path + "><img height=500 width=300 target=_blank src=" + path
 						+ "></a>" + "</details>");
 			}
-		
+			
 		
 		}catch (Exception e) {
 			e.printStackTrace();
