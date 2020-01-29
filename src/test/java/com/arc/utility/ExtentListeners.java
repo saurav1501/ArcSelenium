@@ -62,7 +62,7 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 						+ "Exception Occured : Click to see All Exception Logs->" + "</font>" + "</b >" + "</summary>"
 						+ excepionMessage.replaceAll(",", "<br>") + "</details>" + " \n");
 
-		String path = System.getProperty("user.dir") + File.separator + "Reports\\Screenshots" + File.separator
+		String path = System.getProperty("user.dir") + File.separator + "Reports"+File.separator + "Screenshots" + File.separator
 				+ result.getTestClass().getName()
 				+ result.getMethod().getMethodName().replace(":", "_").replace(" ", "_") + ".png";
 
