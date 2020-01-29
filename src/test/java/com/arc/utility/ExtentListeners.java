@@ -85,7 +85,8 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 		}
 		try {
 			
-			if(System.getenv("user.dir").equals("https://test.usgbc.org/var/lib/jenkins/workspace/ArcSelenium"));
+			if(System.getProperty("user.dir").equalsIgnoreCase("https://test.usgbc.org/var/lib/jenkins/workspace/ArcSelenium"));
+					//"https://test.usgbc.org/var/lib/jenkins/workspace/ArcSelenium");
 			{
 			String jenkinsScreenshot = "https://test.usgbc.org/job/ArcSelenium/ws/Reports/Screenshots/"+result.getTestClass().getName()+ result.getMethod().getMethodName() + ".png";
             testLog.get().fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
@@ -94,7 +95,7 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 							+ "></a>" + "</details>");
 			} 
 			
-			if(System.getenv("user.dir").equals("D:/worksapceNew/ArcTest"));
+			if(System.getProperty("user.dir").equals("D:/worksapceNew/ArcTest"));
 			{
             testLog.get()
 				.fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>"
