@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Building" duration-ms="52941" started-at="2020-01-29T11:24:07Z" finished-at="2020-01-29T11:25:00Z">
+    <groups>
+      <group name="Sanity">
+        <method signature="LoginIntoArcTest.LoginIntoArc(int, java.lang.String)[pri:0, instance:com.arc.Building.LoginIntoArcTest@9f70c54]" name="LoginIntoArc" class="com.arc.Building.LoginIntoArcTest"/>
+      </group> <!-- Sanity -->
+    </groups>
+    <test name="BuildingTest" duration-ms="52941" started-at="2020-01-29T11:24:07Z" finished-at="2020-01-29T11:25:00Z">
+      <class name="com.arc.Building.LoginIntoArcTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.arc.Building.LoginIntoArcTest@9f70c54]" name="setup" is-config="true" duration-ms="36256" started-at="2020-01-29T16:53:31Z" finished-at="2020-01-29T16:54:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="ExtentReportConfig(org.testng.ITestContext)[pri:0, instance:com.arc.Building.LoginIntoArcTest@9f70c54]" name="ExtentReportConfig" is-config="true" duration-ms="257" started-at="2020-01-29T16:54:07Z" finished-at="2020-01-29T16:54:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@87abc48]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExtentReportConfig -->
+        <test-method status="PASS" signature="LoginIntoArc(int, java.lang.String)[pri:0, instance:com.arc.Building.LoginIntoArcTest@9f70c54]" name="LoginIntoArc" duration-ms="52636" started-at="2020-01-29T16:54:07Z" description="Verify if user is able to login with Valid UserName and password" finished-at="2020-01-29T16:55:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginIntoArc -->
+        <test-method status="PASS" signature="end()[pri:0, instance:com.arc.Building.LoginIntoArcTest@9f70c54]" name="end" is-config="true" duration-ms="7507" started-at="2020-01-29T16:55:01Z" finished-at="2020-01-29T16:55:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- end -->
+      </class> <!-- com.arc.Building.LoginIntoArcTest -->
+    </test> <!-- BuildingTest -->
+  </suite> <!-- Building -->
+  <suite name="MasterTestNg" duration-ms="0" started-at="2020-01-29T11:25:09Z" finished-at="2020-01-29T11:25:09Z">
+    <groups>
+    </groups>
+  </suite> <!-- MasterTestNg -->
+</testng-results>

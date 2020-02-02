@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Building]">
+  <parameter name="loginSheet" value="Login"/>
+  <parameter name="rowNum" value="2"/>
+  <parameter name="AddProject" value="USBuildingProject"/>
+  <listeners>
+    <listener class-name="com.arc.utility.ExtentListeners"/>
+  </listeners>
+  <test name="BuildingTest">
+    <parameter name="loginSheet" value="Login"/>
+    <parameter name="rowNum" value="2"/>
+    <parameter name="AddProject" value="USBuildingProject"/>
+    <classes>
+      <class name="com.arc.Building.LoginIntoArcTest"/>
+      <class name="com.arc.Building.AddNewProjectTest"/>
+    </classes>
+  </test> <!-- BuildingTest -->
+  <test name="BuildingTest(failed)">
+    <parameter name="loginSheet" value="Login"/>
+    <parameter name="rowNum" value="2"/>
+    <parameter name="AddProject" value="USBuildingProject"/>
+    <classes>
+      <class name="com.arc.Building.LoginIntoArcTest">
+        <methods>
+          <include name="LoginIntoArc"/>
+          <include name="setup"/>
+          <include name="end"/>
+          <include name="ExtentReportConfig"/>
+        </methods>
+      </class> <!-- com.arc.Building.LoginIntoArcTest -->
+      <class name="com.arc.Building.AddNewProjectTest">
+        <methods>
+          <include name="ExtentReportConfig"/>
+          <include name="AddNewProject" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.arc.Building.AddNewProjectTest -->
+    </classes>
+  </test> <!-- BuildingTest(failed) -->
+</suite> <!-- Failed suite [Building] -->
