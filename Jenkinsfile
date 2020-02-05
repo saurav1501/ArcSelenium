@@ -34,8 +34,8 @@ pipeline{
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])     
     
 	    emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
-            body : 'Extend Report Link - https://test.usgbc.org/job/Arc/ExtendReport/ARC_UITestingReport_Building.html',
-	    body : readFile("target/surefire-reports/emailable-report.html"),
+            body : echo 'Extend Report Link - https://test.usgbc.org/job/Arc/ExtendReport/ARC_UITestingReport_Building.html',
+	    readFile("target/surefire-reports/emailable-report.html"),
 		      
             mimeType: 'text/html');
 	}
