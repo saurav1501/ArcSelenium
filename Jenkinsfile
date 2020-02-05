@@ -32,7 +32,9 @@ pipeline{
       post {
         always {
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])     
-        }
+        mail bcc: '', body: 'Hi Please find the attached report.', cc: 'ssinha@usgbc.org', from: '', replyTo: '', subject: '${env.JOB_NAME} - Build# ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}', to: 'ssinha@usgbc.org'
+      
+	}
       }
       
 }
