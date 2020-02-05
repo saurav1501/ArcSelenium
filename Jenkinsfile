@@ -12,7 +12,7 @@ shell "mvn clean install"
 stage('Excuting Code..') 
 {
 steps{
-  wrap([$class: 'Xvfb', installationName: 'Xvfb', screen: '1600x1280x24', timeout: 60]) {
+  wrap([$class: 'Xvfb', installationName: 'Xvfb', screen: '1600x1280x24',parallelBuild: true, timeout: 60]) {
   sh "mvn -f pom.xml clean install"
 }
 }
