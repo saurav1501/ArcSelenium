@@ -20,25 +20,15 @@ steps{
 }
   
  stage ('Test') {
-      steps {
-        // run tests with coverage
-        sh 'bundle exec rake spec'
-      }
-
+   steps {
       post {
         always {
-          // publish html
-             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])
-            
+        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])     
         }
+       }
       }
-    
-  
-  post {
-    always {
-      echo "Send notifications for result: ${currentBuild.result}"
-    }
   }
-}
+  
+  
  }
 }
