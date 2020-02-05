@@ -33,9 +33,10 @@ pipeline{
         always {
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])     
     
-       emailext body: '', subject: 'Email Report', to: 'ssinha@usgbc.org'
-			emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}' ", 
-            body : readFile("target/surefire-reports/emailable-report.html"),
+	    emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}' ", 
+            body : 
+		      "Extend Report Link-"+"<a href= "https://test.usgbc.org/job/Arc/ExtendReport/"></a>"
+		      ,readFile("target/surefire-reports/emailable-report.html"),
             mimeType: 'text/html');
 	}
       }
