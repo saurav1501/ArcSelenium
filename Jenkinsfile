@@ -35,8 +35,7 @@ pipeline{
     
 	    emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
             body : 
-		       "Extend Report Link-href= https://test.usgbc.org/job/Arc/ExtendReport/>"
-		      ,readFile("target/surefire-reports/emailable-report.html"),
+		      readFile("target/surefire-reports/emailable-report.html"),
             mimeType: 'text/html');
 	}
       }
