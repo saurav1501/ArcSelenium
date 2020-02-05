@@ -35,7 +35,7 @@ pipeline{
     
 	    emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
             body : 
-		      readFile("ExtendReport/ARC_UITestingReport_Building.html"),
+		      readFile(reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html'),
 		      
             mimeType: 'text/html');
 	}
