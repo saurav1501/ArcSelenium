@@ -13,7 +13,7 @@ stage('Test')
 {
 steps{
 echo "Testing the Code.........."
-shell "mvn -f pom.xml clean install"
+sh "mvn -f pom.xml clean install"
 
 }
 }
