@@ -6,6 +6,7 @@
   <parameter name="AddProject" value="USBuildingProject"/>
   <listeners>
     <listener class-name="com.arc.utility.ExtentListeners"/>
+    <listener class-name="com.arc.utility.CustomTestNGReporter"/>
   </listeners>
   <test name="BuildingTest">
     <parameter name="loginSheet" value="Login"/>
