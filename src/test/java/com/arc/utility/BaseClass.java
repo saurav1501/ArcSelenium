@@ -69,15 +69,33 @@ public class BaseClass {
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
 		
-		environment = prop.getProperty("environment");
+		/*environment = prop.getProperty("environment");
 		browserName = prop.getProperty("browserName");
+	*/	
+		
+		//if((System.getenv("browserName")!=null && !System.getenv("browserName").isEmpty())
+				
+		if(System.getenv("environment")!=null && !System.getenv("environment").isEmpty() ){
 			
-		System.out.println(browserName);
-		System.out.println(environment);
-		if (browserName.equalsIgnoreCase("firefox")) {
+			//browserName = System.getenv("browserName");
+			environment   =   System.getenv("environment");
+			
+		}else{
+			
+			//browserName = prop.getProperty("browserName");
+			environment = prop.getProperty("environment");
+			
+		}
+		
+		//prop.setProperty("browser", browserName);
+		prop.setProperty("environment", environment);
+		
+
+		if (prop.getProperty("browser").equals("firefox")) {
+
+			
 
 			WebDriverManager.firefoxdriver().setup();
-			//System.setProperty("webdriver.gecko.driver",getFirefoxDriverPath());
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
 			
@@ -101,13 +119,13 @@ public class BaseClass {
 			   profile.setPreference("pdfjs.disabled", true);
 		
 			   
-		   FirefoxOptions option = new FirefoxOptions();
+		    FirefoxOptions option = new FirefoxOptions();
 		    option.setProfile(profile);
 			option.addArguments("-headless");
 			driver = new FirefoxDriver();
 			
 		
-		} else if (browserName.equalsIgnoreCase("chrome")) {
+		} else if (prop.getProperty("browser").equals("chrome")) {
 			// WebDriverManager.chromedriver().setup();
 			 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/DriverFiles/chromedriver.exe");
 			 ChromeOptions options = new ChromeOptions();
