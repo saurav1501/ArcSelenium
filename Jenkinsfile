@@ -8,11 +8,13 @@ pipeline{
 		steps{
 		echo "Building the Code.........."
 		git 'https://github.com/saurav1501/ArcSelenium.git'
+		echo "Building the Code............"
+
 		shell "mvn clean install"
 		}
 		}
 		
-		stage('Excuting Code..') 
+		stage('Excuting Code...') 
 		 {
 		steps{
 		  wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
