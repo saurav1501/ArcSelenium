@@ -16,8 +16,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
