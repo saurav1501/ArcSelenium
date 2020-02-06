@@ -73,27 +73,25 @@ public class BaseClass {
 		browserName = prop.getProperty("browserName");
 	*/	
 		
-		//if((System.getenv("browserName")!=null && !System.getenv("browserName").isEmpty())
+		if((System.getenv("browserName")!=null && !System.getenv("browserName").isEmpty())
 				
-		if(System.getenv("environment")!=null && !System.getenv("environment").isEmpty() ){
+		 && System.getenv("environment")!=null && !System.getenv("environment").isEmpty() ){
 			
-			//browserName = System.getenv("browserName");
+			browserName = System.getenv("browserName");
 			environment   =   System.getenv("environment");
 			
 		}else{
 			
-			//browserName = prop.getProperty("browserName");
+			browserName = prop.getProperty("browserName");
 			environment = prop.getProperty("environment");
 			
 		}
 		
-		//prop.setProperty("browser", browserName);
+		prop.setProperty("browser", browserName);
 		prop.setProperty("environment", environment);
 		
 
 		if (prop.getProperty("browser").equals("firefox")) {
-
-			
 
 			WebDriverManager.firefoxdriver().setup();
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
