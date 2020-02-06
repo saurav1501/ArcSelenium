@@ -12,8 +12,8 @@ public class LoginIntoArcTest extends BaseClass{
 	  public void LoginIntoArc(int rowNum,String loginSheet) {
 		  
 		try { 
-			System.getPropertie("user.dir")+"/Reports/custom-emailable-report.html";
-			login.LoginToArc(rowNum,"Projects", loginSheet);
+		
+				login.LoginToArc(rowNum,"Projects", loginSheet);
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);
