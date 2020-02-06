@@ -161,7 +161,7 @@
 							<includes>
 								<include>**/*</include>
 							</includes>
-							<followSymlinks>false</followSymlinks>
+							<followSymlinks>true</followSymlinks>
 						</fileset>
 					</filesets>
 				</configuration>

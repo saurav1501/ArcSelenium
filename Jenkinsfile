@@ -34,13 +34,12 @@ pipeline{
 	   
       post {
         always {
-        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])     
-    
+         publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])
 	     emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
-         body : readFile("Reports/custom-emailable-report.html"),   
+         body : readFile("target/surefire-reports/custom-emailable-report.html"),   
          mimeType: 'text/html');
 	}
-      }
+   }
       
 }
 	

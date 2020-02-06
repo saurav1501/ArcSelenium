@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">2 suites</span>
+      <span class="top-banner-font-1">2 suites, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Building">
-              <span class="suite-name border-passed">Building</span>
+              <span class="suite-name border-failed">Building</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="group-Building">
-                    <span>1 group</span>
+                    <span>2 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Building" class="hide-methods failed suite-Building"> (hide)</a> <!-- hide-methods failed suite-Building -->
+                      <a href="#" panel-name="suite-Building" class="show-methods failed suite-Building"> (show)</a> <!-- show-methods failed suite-Building -->
+                    </span>
+                    <div class="method-list-content failed suite-Building">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Building" title="com.arc.Building.AddNewProjectTest" hash-for-method="AddNewProject(USBuildingProject, 2)">AddNewProject(USBuildingProject, 2)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Building -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -117,6 +131,56 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Building" class="panel Building">
+          <div class="suite-Building-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.arc.Building.AddNewProjectTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="AddNewProject(USBuildingProject, 2)">
+                  </a> <!-- AddNewProject(USBuildingProject, 2) -->
+                  <span class="method-name">AddNewProject</span>
+                  <span class="parameters">(USBuildingProject, 2)</span>
+                  <div class="stack-trace">java.lang.RuntimeException: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: OrgClick (tried for 30 second(s) with 500 milliseconds interval)
+	at com.arc.Building.AddNewProjectTest.AddNewProject(AddNewProjectTest.java:17)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: OrgClick (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.arc.ReusableMethods.ReusableMethodsAddNewProject.AddNewProject(ReusableMethodsAddNewProject.java:54)
+	at com.arc.Building.AddNewProjectTest.AddNewProject(AddNewProjectTest.java:14)
+	... 35 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: OrgClick
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;G10GGNLT052&apos;, ip: &apos;192.168.43.20&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 72.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20200117190643, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 6448, moz:profile: C:\Users\Group10.G10GGNLT05..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 381986e0-3464-4805-9e88-2ae7b527180d
+*** Element info: {Using=xpath, value=OrgClick}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 37 more
+... Removed 39 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify if user is able to register the Project)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Building-class-failed -->
           <div class="suite-Building-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -149,6 +213,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;Building&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.arc.utility.ExtentListeners&quot;/&gt;
+    &lt;listener class-name=&quot;com.arc.utility.CustomTestNGReporter&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test name=&quot;BuildingTest&quot;&gt;
     &lt;parameter name=&quot;loginSheet&quot; value=&quot;Login&quot;/&gt;
@@ -156,6 +221,7 @@
     &lt;parameter name=&quot;AddProject&quot; value=&quot;USBuildingProject&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.arc.Building.LoginIntoArcTest&quot;/&gt;
+      &lt;class name=&quot;com.arc.Building.AddNewProjectTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- BuildingTest --&gt;
 &lt;/suite&gt; &lt;!-- Building --&gt;
@@ -173,6 +239,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;MasterTestNg&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.arc.utility.ExtentListeners&quot;/&gt;
+    &lt;listener class-name=&quot;com.arc.utility.CustomTestNGReporter&quot;/&gt;
   &lt;/listeners&gt;
   &lt;suite-files&gt;
     &lt;suite-file path=&quot;testng.xml&quot;/&gt;
@@ -188,7 +255,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">BuildingTest (1 class)</span>
+                <span class="test-name">BuildingTest (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -215,6 +282,14 @@
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">Sanity,Regression</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">AddNewProject</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="group-MasterTestNg" class="panel">
@@ -238,16 +313,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'LoginIntoArc')
 data.setCell(0, 2, 'com.arc.Building.LoginIntoArcTest')
-data.setCell(0, 3, 52636);
+data.setCell(0, 3, 53737);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'AddNewProject')
+data.setCell(1, 2, 'com.arc.Building.AddNewProjectTest')
+data.setCell(1, 3, 35348);
 window.suiteTableData['Building']= { tableData: data, tableDiv: 'times-div-Building'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 52 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Building">
               </div> <!-- times-div-Building -->
             </div> <!-- times-div -->
@@ -293,9 +372,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Building" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.arc.Building.AddNewProjectTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">setup</span>
+                <br/>
+                <span class="ignored-method-name">end</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-MasterTestNg" class="panel">
@@ -317,16 +405,32 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
-                <span class="method-name">ExtentReportConfig(org.testng.TestRunner@87abc48)</span>
-                <span class="method-start">36290 ms</span>
+                <span class="method-name">ExtentReportConfig(org.testng.TestRunner@15e0fe05)</span>
+                <span class="method-start">25111 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">LoginIntoArc(2, Login)</span>
-                <span class="method-start">36547 ms</span>
+                <span class="method-start">25297 ms</span>
               </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.arc.Building.AddNewProjectTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">ExtentReportConfig(org.testng.TestRunner@15e0fe05)</span>
+                <span class="method-start">79039 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">AddNewProject(USBuildingProject, 2)</span>
+                <span class="method-start">79039 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.arc.Building.LoginIntoArcTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
                 <span class="method-name">end</span>
-                <span class="method-start">90116 ms</span>
+                <span class="method-start">118418 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
