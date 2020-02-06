@@ -34,7 +34,7 @@ pipeline{
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])     
     
 	    emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
-            body : readFile("test-output/custom-emailable-report.html"),
+            body : readFile(System.getProperty("user.dir")+"/Reports/custom-emailable-report.html"),
 		      
             mimeType: 'text/html');
 	}
