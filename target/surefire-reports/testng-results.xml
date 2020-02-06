@@ -2,33 +2,33 @@
 <testng-results skipped="0" failed="1" ignored="2" total="4" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Building" duration-ms="92729" started-at="2020-02-06T14:28:43Z" finished-at="2020-02-06T14:30:16Z">
+  <suite name="Building" duration-ms="85119" started-at="2020-02-06T15:50:42Z" finished-at="2020-02-06T15:52:07Z">
     <groups>
       <group name="Sanity">
-        <method signature="LoginIntoArcTest.LoginIntoArc(int, java.lang.String)[pri:0, instance:com.arc.Building.LoginIntoArcTest@737996a0]" name="LoginIntoArc" class="com.arc.Building.LoginIntoArcTest"/>
+        <method signature="LoginIntoArcTest.LoginIntoArc(int, java.lang.String)[pri:0, instance:com.arc.Building.LoginIntoArcTest@234bef66]" name="LoginIntoArc" class="com.arc.Building.LoginIntoArcTest"/>
       </group> <!-- Sanity -->
       <group name="Sanity,Regression">
-        <method signature="AddNewProjectTest.AddNewProject(java.lang.String, int)[pri:0, instance:com.arc.Building.AddNewProjectTest@61dc03ce]" name="AddNewProject" class="com.arc.Building.AddNewProjectTest"/>
+        <method signature="AddNewProjectTest.AddNewProject(java.lang.String, int)[pri:0, instance:com.arc.Building.AddNewProjectTest@737996a0]" name="AddNewProject" class="com.arc.Building.AddNewProjectTest"/>
       </group> <!-- Sanity,Regression -->
     </groups>
-    <test name="BuildingTest" duration-ms="92729" started-at="2020-02-06T14:28:43Z" finished-at="2020-02-06T14:30:16Z">
+    <test name="BuildingTest" duration-ms="85119" started-at="2020-02-06T15:50:42Z" finished-at="2020-02-06T15:52:07Z">
       <class name="com.arc.Building.LoginIntoArcTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.arc.Building.LoginIntoArcTest@737996a0]" name="setup" is-config="true" duration-ms="24982" started-at="2020-02-06T19:58:18Z" finished-at="2020-02-06T19:58:43Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.arc.Building.LoginIntoArcTest@234bef66]" name="setup" is-config="true" duration-ms="23951" started-at="2020-02-06T21:20:18Z" finished-at="2020-02-06T21:20:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="ExtentReportConfig(org.testng.ITestContext)[pri:0, instance:com.arc.Building.LoginIntoArcTest@737996a0]" name="ExtentReportConfig" is-config="true" duration-ms="186" started-at="2020-02-06T19:58:43Z" finished-at="2020-02-06T19:58:43Z">
+        <test-method status="PASS" signature="ExtentReportConfig(org.testng.ITestContext)[pri:0, instance:com.arc.Building.LoginIntoArcTest@234bef66]" name="ExtentReportConfig" is-config="true" duration-ms="205" started-at="2020-02-06T21:20:42Z" finished-at="2020-02-06T21:20:42Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@15e0fe05]]>
+                <![CDATA[org.testng.TestRunner@118102ee]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ExtentReportConfig -->
-        <test-method status="PASS" signature="LoginIntoArc(int, java.lang.String)[pri:0, instance:com.arc.Building.LoginIntoArcTest@737996a0]" name="LoginIntoArc" duration-ms="53737" started-at="2020-02-06T19:58:43Z" description="Verify if user is able to login with Valid UserName and password" finished-at="2020-02-06T19:59:37Z">
+        <test-method status="PASS" signature="LoginIntoArc(int, java.lang.String)[pri:0, instance:com.arc.Building.LoginIntoArcTest@234bef66]" name="LoginIntoArc" duration-ms="47814" started-at="2020-02-06T21:20:42Z" description="Verify if user is able to login with Valid UserName and password" finished-at="2020-02-06T21:21:30Z">
           <params>
             <param index="0">
               <value>
@@ -44,13 +44,13 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginIntoArc -->
-        <test-method status="PASS" signature="end()[pri:0, instance:com.arc.Building.LoginIntoArcTest@737996a0]" name="end" is-config="true" duration-ms="2481" started-at="2020-02-06T20:00:16Z" finished-at="2020-02-06T20:00:19Z">
+        <test-method status="PASS" signature="end()[pri:0, instance:com.arc.Building.LoginIntoArcTest@234bef66]" name="end" is-config="true" duration-ms="2562" started-at="2020-02-06T21:22:07Z" finished-at="2020-02-06T21:22:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
       </class> <!-- com.arc.Building.LoginIntoArcTest -->
       <class name="com.arc.Building.AddNewProjectTest">
-        <test-method status="FAIL" signature="AddNewProject(java.lang.String, int)[pri:0, instance:com.arc.Building.AddNewProjectTest@61dc03ce]" name="AddNewProject" duration-ms="35348" depends-on-groups="Sanity" started-at="2020-02-06T19:59:37Z" description="Verify if user is able to register the Project" finished-at="2020-02-06T20:00:12Z">
+        <test-method status="FAIL" signature="AddNewProject(java.lang.String, int)[pri:0, instance:com.arc.Building.AddNewProjectTest@737996a0]" name="AddNewProject" duration-ms="34450" depends-on-groups="Sanity" started-at="2020-02-06T21:21:30Z" description="Verify if user is able to register the Project" finished-at="2020-02-06T21:22:04Z">
           <params>
             <param index="0">
               <value>
@@ -116,8 +116,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'G10GGNLT052', ip: '192.168.43.20', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 72.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20200117190643, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 6448, moz:profile: C:\Users\Group10.G10GGNLT05..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 381986e0-3464-4805-9e88-2ae7b527180d
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 72.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20200117190643, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 18816, moz:profile: C:\Users\Group10.G10GGNLT05..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b7cd129e-3b17-4523-b883-ed787b95b1d4
 *** Element info: {Using=xpath, value=OrgClick}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -143,11 +143,11 @@ Session ID: 381986e0-3464-4805-9e88-2ae7b527180d
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddNewProject -->
-        <test-method status="PASS" signature="ExtentReportConfig(org.testng.ITestContext)[pri:0, instance:com.arc.Building.AddNewProjectTest@61dc03ce]" name="ExtentReportConfig" is-config="true" duration-ms="0" started-at="2020-02-06T19:59:37Z" finished-at="2020-02-06T19:59:37Z">
+        <test-method status="PASS" signature="ExtentReportConfig(org.testng.ITestContext)[pri:0, instance:com.arc.Building.AddNewProjectTest@737996a0]" name="ExtentReportConfig" is-config="true" duration-ms="0" started-at="2020-02-06T21:21:30Z" finished-at="2020-02-06T21:21:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@15e0fe05]]>
+                <![CDATA[org.testng.TestRunner@118102ee]]>
               </value>
             </param>
           </params>
@@ -157,7 +157,7 @@ Session ID: 381986e0-3464-4805-9e88-2ae7b527180d
       </class> <!-- com.arc.Building.AddNewProjectTest -->
     </test> <!-- BuildingTest -->
   </suite> <!-- Building -->
-  <suite name="MasterTestNg" duration-ms="0" started-at="2020-02-06T14:30:19Z" finished-at="2020-02-06T14:30:19Z">
+  <suite name="MasterTestNg" duration-ms="0" started-at="2020-02-06T15:52:10Z" finished-at="2020-02-06T15:52:10Z">
     <groups>
     </groups>
   </suite> <!-- MasterTestNg -->
