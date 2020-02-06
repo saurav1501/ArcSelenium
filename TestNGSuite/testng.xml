@@ -10,6 +10,7 @@
 		 <classes>
 			<class name="com.arc.Building.LoginIntoArcTest" />
 			  <class name="com.arc.Building.AddNewProjectTest" />  
+
 		</classes>  
 	</test>
 </suite> 
