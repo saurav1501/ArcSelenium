@@ -1,6 +1,6 @@
 pipeline{
 		agent any
-		properties([parameters([choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'select a branch to build project', name: 'branch'])])
+		properties([parameters([choice(choices: ['stg', 'qas', 'dev'], description: 'select environment to build', name: 'environment')])])])
 	        stages 
 		{
 		stage('Building Project') 
