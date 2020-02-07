@@ -12,7 +12,6 @@ pipeline{
 		steps{
 		echo "Building the Code.........."
 		git branch: "${params.branch}", url: 'https://github.com/saurav1501/ArcSelenium.git'
-		git 'https://github.com/saurav1501/ArcSelenium.git',branch : "${params.branch}"
 		echo "Building the Code............"
 
 		shell "mvn clean install"
