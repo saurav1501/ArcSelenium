@@ -1,13 +1,15 @@
 pipeline{
 		agent any
 		
+	        properties([<object of type jenkins.plugins.slack.SlackNotifier.SlackJobProperty>, parameters([choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'select a branch to build project', name: 'branch')]), <object of type org.jenkinsci.plugins.envinject.EnvInjectJobProperty>, pipelineTriggers([githubPush()])])
+
 		stages 
 		{
 		stage('Building Project') 
 		{
 		steps{
 		echo "Building the Code.........."
-		git 'https://github.com/saurav1501/ArcSelenium.git'
+		git 'https://github.com/saurav1501/ArcSelenium.git',branch : "${params.branch}"
 		echo "Building the Code............"
 
 		shell "mvn clean install"
