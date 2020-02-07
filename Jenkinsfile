@@ -36,6 +36,7 @@ pipeline{
 	stage('Publish Html Report') {
             steps {
                 echo 'Extend Report'    
+		     echo 'Extend Report'   
         
         }
       }
