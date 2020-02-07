@@ -1,8 +1,7 @@
 pipeline{
 		agent any
 		
-	        properties([<object of type jenkins.plugins.slack.SlackNotifier.SlackJobProperty>, parameters([choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'select a branch to build project', name: 'branch')]), <object of type org.jenkinsci.plugins.envinject.EnvInjectJobProperty>, pipelineTriggers([githubPush()])])
-
+	        properties([parameters([choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'select a branch to build project', name: 'branch')]
 		stages 
 		{
 		stage('Building Project') 
