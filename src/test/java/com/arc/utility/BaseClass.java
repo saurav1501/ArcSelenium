@@ -80,18 +80,25 @@ public class BaseClass {
 			browserName = System.getenv("browserName");
 			environment   =   System.getenv("environment");
 			
+			System.out.println(browserName);
+			System.out.println(environment);
+			
+			
 		}else{
 			
 			browserName = prop.getProperty("browserName");
 			environment = prop.getProperty("environment");
 			
+			System.out.println(browserName);
+			System.out.println(environment);
+			
 		}
 		
-		prop.setProperty("browser", browserName);
-		prop.setProperty("environment", environment);
+	    	prop.setProperty("browserName", browserName);
+		    prop.setProperty("environment", environment);
 		
 
-		if (prop.getProperty("browser").equals("firefox")) {
+		if (prop.getProperty("browserName").equals("firefox")) {
 
 			WebDriverManager.firefoxdriver().setup();
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
@@ -123,7 +130,7 @@ public class BaseClass {
 			driver = new FirefoxDriver();
 			
 		
-		} else if (prop.getProperty("browser").equals("chrome")) {
+		} else if (prop.getProperty("browserName").equals("chrome")) {
 			// WebDriverManager.chromedriver().setup();
 			 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/DriverFiles/chromedriver.exe");
 			 ChromeOptions options = new ChromeOptions();
