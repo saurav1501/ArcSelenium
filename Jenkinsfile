@@ -12,7 +12,7 @@ pipeline{
 			stage('Building Project') 
 		{
 		steps{
-		echo "Building the C..."
+		echo "Building the C.."
 			echo "Buie..."
 			echo "Buie..."
 		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
