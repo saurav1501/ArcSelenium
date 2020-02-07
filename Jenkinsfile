@@ -1,6 +1,7 @@
 pipeline{
 		agent any
-		properties([parameters([choice(choices: ['stg', 'qas', 'dev'], description: 'select environment to build', name: 'environment')]) pipelineTriggers([githubPush()])])
+		properties([parameters([choice(choices: ['stg', 'qas', 'dev'], description: 'select environment to build', name: 'environment')]) 
+			    ])
 	        stages 
 		{
 		stage('Building Project') 
