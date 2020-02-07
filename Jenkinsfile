@@ -2,9 +2,9 @@ pipeline{
 		agent any
 	
 	parameters{
-		choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'select a branch to build project', name: 'environment')
-		choice(choices: ['browserName', 'firefox', 'chrome', 'ie'], description: 'select browser to build project', name: 'browserName')
-		browserName
+		choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
+                choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
+		
 	}
 	        
 	         stages{
