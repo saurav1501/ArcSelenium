@@ -1,13 +1,19 @@
 pipeline{
 		agent any
+	
+	parameters{
+		choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
+                choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
 		
-		stages 
-		{
-		stage('Building Project') 
+	}
+	        
+	         stages{
+		
+			stage('Building Project') 
 		{
 		steps{
 		echo "Building the Code.........."
-		git 'https://github.com/saurav1501/ArcSelenium.git'
+		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
 		echo "Building the Code............"
 
 		shell "mvn clean install"
