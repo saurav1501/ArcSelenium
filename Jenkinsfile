@@ -14,7 +14,7 @@ pipeline{
 		steps{
 		echo "Building the C.."
 			echo "Buie..."
-			echo "Buie..."
+			
 		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
 		echo "Building the Code........."
 
