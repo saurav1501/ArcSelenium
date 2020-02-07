@@ -12,7 +12,7 @@ pipeline{
 			stage('Building Project') 
 		{
 		steps{
-		echo "Building the Co......."
+		echo "Building the C......."
 			
 			echo "Building the Co......."
 			
