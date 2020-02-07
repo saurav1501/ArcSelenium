@@ -82,6 +82,7 @@ public class BaseClass {
 			
 			System.out.println(browserName);
 			System.out.println(environment);
+			System.out.println(environment);
 			
 			
 		}else{
