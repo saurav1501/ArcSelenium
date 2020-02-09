@@ -15,8 +15,7 @@ pipeline{
 		echo "Building the ..."
 			echo "Building tCode.........."
 		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
-		echo "Building the Code........."
-                echo "Building the Code.........
+	
 		shell "mvn clean install"
 		}
 		}
