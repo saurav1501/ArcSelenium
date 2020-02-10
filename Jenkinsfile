@@ -15,6 +15,7 @@ pipeline{
 		{
 		steps{
 		echo "Building th"
+			echo "Building th"
 			
 				
 		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
