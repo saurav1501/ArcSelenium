@@ -8,7 +8,7 @@ pipeline{
 	 
 
 stages{
-		stage('Git checkout Developer Code') 
+		stage('Git checkout Developer') 
 		{
 		steps
 		{
