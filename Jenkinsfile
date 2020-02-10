@@ -15,7 +15,7 @@ pipeline{
 		steps{
 		echo "Building the C.."
 			
-			echo "Building th."
+			
 			echo "Building th."
 			
 			
