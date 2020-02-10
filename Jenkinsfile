@@ -17,7 +17,7 @@ pipeline{
 		echo "Building th"
 			echo "Building th"
 			
-			
+				echo "Building th"
 			
 				
 		git branch: 'stg', url: 'https://github.com/saurav1501/ArcSelenium.git'
