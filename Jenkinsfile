@@ -9,7 +9,7 @@ pipeline{
 	        
 	         stages{
 		
-			stage('Building Proje.jkjk') 
+			stage('Building Projek') 
 		{
 		steps{
 	
