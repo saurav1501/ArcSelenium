@@ -22,6 +22,7 @@ pipeline{
 				
 		git branch: 'stg', url: 'https://github.com/saurav1501/ArcSelenium.git'
 		echo "Building the Code........."
+			echo "Building the Code........."
               
 		
                 echo "Building the Code........."
