@@ -6,10 +6,6 @@ pipeline{
                 choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
 		}
 	        
-	
-	triggers {
-    githubWebhook()
-}
 	         stages{
 		        stage('Building Proje99k') 
 			
