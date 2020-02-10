@@ -10,17 +10,16 @@ pipeline{
 	         stages{
 		        stage('Building Project') 
 			echo 'Extend Report' 
-		
+		         echo 'Extend Report' 
 			 
-                       echo 'Extend Report' 
+                      
 		
 			
 		{
 		steps{
 		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
 		
-             
-		shell "mvn clean install"
+  		shell "mvn clean install"
 	       
 		
 		}
