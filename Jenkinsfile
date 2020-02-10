@@ -8,7 +8,7 @@ pipeline{
 	}
 	        
 	         stages{
-		        stage('Building Project') 
+		        stage('Building Projectjkjk') 
 			
 			
 			 
