@@ -9,6 +9,7 @@ pipeline{
 	        
 	         stages{
 		        stage('Building Project') 
+			 stage('Building Project') 
 			
 			 
 		{
