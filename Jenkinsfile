@@ -10,7 +10,7 @@ pipeline{
 	         stages{
 		        stage('Building Project') 
 			stage('Building Project')
-			 stage('Building Project') 
+			
 		{
 		steps{
 		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
