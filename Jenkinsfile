@@ -10,6 +10,7 @@ pipeline{
 	         stages{
 		
 			stage('Building Project') 
+			 stage('Building Project') 
 		{
 		steps{
 		echo "Building the C.."
