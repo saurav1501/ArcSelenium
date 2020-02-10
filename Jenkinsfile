@@ -19,7 +19,7 @@ pipeline{
              
 		shell "mvn clean install"
 	        echo "Building the C.."
-		echo "Building the C.."
+		
 		}
 		}
 		
