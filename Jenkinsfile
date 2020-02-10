@@ -9,7 +9,7 @@ pipeline{
 	        
 	         stages{
 		        stage('Building Project') 
-			
+			echo 'Extend Report' 
                        
 			
 		{
