@@ -8,8 +8,8 @@ pipeline{
 	        
 	
 	triggers {
-        githubPush()
-      }
+    githubWebhook()
+}
 	         stages{
 		        stage('Building Proje99k') 
 			
