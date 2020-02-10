@@ -10,6 +10,8 @@ pipeline{
 	         stages{
 		        stage('Building Project') 
 			echo 'Extend Report' 
+			 echo 'Extend Report' 
+			 
                        
 			
 		{
