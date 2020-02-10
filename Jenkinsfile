@@ -8,7 +8,7 @@ pipeline{
 	}
 	        
 	         stages{
-		        stage('Building Projectjkjk') 
+		        stage('Building Proje99k') 
 			
 			
 			 
@@ -19,7 +19,7 @@ pipeline{
 			echo "Building th"
 			
 				
-		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
+		git branch: 'stg', url: 'https://github.com/saurav1501/ArcSelenium.git'
 		echo "Building the Code........."
               
 		
@@ -46,14 +46,6 @@ pipeline{
       }
      }
 	   
-      post {
-        always {
-         publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])
-	     emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
-         body : readFile("src/test/java/com/arc/utility/custom-emailable-report.html"),   
-         mimeType: 'text/html');
-	}
-   }
-      
+     
 }
 	
