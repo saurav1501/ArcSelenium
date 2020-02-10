@@ -18,7 +18,7 @@ pipeline{
 		{
 		steps{
 		echo "Building th"
-			echo "Building th"
+			
 			
 				
 			
