@@ -3,10 +3,7 @@ pipeline {
     stages {
         
        stage('Dev Code Checkout') {
-	       when {
-                beforeAgent true
-                branch 'stg'
-              }
+	      
 	
       steps {
        echo 'Dev Code Checkout'
@@ -16,6 +13,10 @@ pipeline {
       }
     }
     stage('Build And Test') {
+	     when {
+                beforeAgent true
+                branch 'master'
+              }
             steps {
                 echo 'maven clean'
                 wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
