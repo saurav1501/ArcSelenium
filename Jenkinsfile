@@ -3,8 +3,13 @@ pipeline {
     stages {
         
        stage('Dev Code Checkout') {
+	       when {
+                beforeAgent true
+                branch 'master'
+              }
 	
       steps {
+       echo 'Dev Code Checkout'
        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
        
           
