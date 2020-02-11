@@ -26,7 +26,7 @@ triggers {
         sh "echo $ref"
       }
     }
-    stages {
+    stage{
         
        stage('Dev Code Checkout') {
 	      
