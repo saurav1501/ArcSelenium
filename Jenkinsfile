@@ -15,8 +15,7 @@ stages{
 		timeout(time: 1, unit: 'MINUTES') {
                     retry(5) {
                 
-                 echo "checkout Developer Code.."
-	         
+               
 	        
 	       
 	        
