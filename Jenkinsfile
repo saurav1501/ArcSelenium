@@ -17,13 +17,13 @@ triggers {
      silentResponse: false,
 
      regexpFilterText: '$ref',
-     regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
-    
+     
     )
   }
   stages {
     stage('Some step') {
       steps {
+        sh 'printenv'
         sh "echo $ref"
       }
     }
