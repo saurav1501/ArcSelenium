@@ -4,7 +4,7 @@ agent any
 triggers {
     GenericTrigger(
      genericVariables: [
-      [key: 'ref', value: '$.ref']
+      [key: 'ref', value: '.ref']
      ],
      printContributedVariables: true,
      printPostContent: true,
@@ -16,7 +16,7 @@ stages {
         stage('Prep') {
             steps {
                 script {
-		    sh "echo $.ref"
+		     sh "${ref}"
 		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                     println "${env.GIT_BRANCH}" 
                     if ("${env.GIT_BRANCH}" == "origin/master") {
