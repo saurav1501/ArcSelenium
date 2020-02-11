@@ -15,8 +15,9 @@ stages{
 		timeout(time: 1, unit: 'MINUTES') {
                     retry(5) {
                 
-
-	        echo "checkout Developer Code.."
+                 echo "checkout Developer Code.."
+	         echo "checkout Developer Code.."
+	       
 		git branch: 'master', url: 'https://github.com/saurav1501/ArcSelenium.git'
 		echo "Building the Code............"
 			    echo "Building the Code............"
