@@ -16,7 +16,7 @@ stages {
         stage('Prep') {
             steps {
                 script {
-		    sh "echo $ref"
+		    sh "echo $.ref"
 		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                     println "${env.GIT_BRANCH}" 
                     if ("${env.GIT_BRANCH}" == "origin/master") {
