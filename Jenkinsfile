@@ -1,6 +1,6 @@
 
 env.agentName = ""
-branch_name = "${env.BRANCH_NAME}"
+
 
 pipeline {
   agent any 
@@ -22,7 +22,7 @@ triggers {
                 script {
 		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                     println branch_name
-                    if ("${branch_name}" == "origin/master") {
+                    if ("${env.GIT_BRANCH}" == "origin/master") {
                         env.agentName = "master"
                     } else {
                         env.agentName = "stg"
@@ -34,7 +34,7 @@ triggers {
 
     stage('Build And Test') {
             steps {
-		echo "${env.GIT_BRANCH}"
+		
 		echo "${env.agentName}"
 		    
 		    
