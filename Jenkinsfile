@@ -1,7 +1,7 @@
 pipeline {
   agent any 
 	  environment {
-		  branch='${env.GIT_BRANCH}'
+		  branch1='${env.GIT_BRANCH}'
         }
 	
 	
@@ -21,7 +21,8 @@ triggers {
     stage('Some step') {
       steps {
         
-	      echo  branch
+	      echo  branch1
+	      echo "${GIT_BRANCH}"
       }
     }
    
