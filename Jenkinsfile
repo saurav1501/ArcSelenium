@@ -27,7 +27,7 @@ stages{
 		stage('Checkout Testing Project') 
 		{
 		steps{
-		echo "Building"
+		
 		echo "Building"
 		git branch: 'master', url: 'git@github.com:agupta89/leedonlineapptest.git'
 		shell "mvn clean install"
