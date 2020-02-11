@@ -1,5 +1,9 @@
 pipeline {
   agent any 
+	  environment {
+            branch=env.GIT_BRANCH
+        }
+	
 	
 triggers {
     GenericTrigger(
@@ -11,11 +15,13 @@ triggers {
      silentResponse: false,  
     )
   }
+	
+	
   stages {
     stage('Some step') {
       steps {
         
-	      echo  '${env.GIT_BRANCH}'
+	      echo  branch
       }
     }
    
