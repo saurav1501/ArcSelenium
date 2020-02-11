@@ -1,7 +1,7 @@
 pipeline {
   agent any 
 	  environment {
-            branch=env.GIT_BRANCH
+		  branch='${env.GIT_BRANCH}'
         }
 	
 	
