@@ -5,7 +5,7 @@ pipeline {
        stage('Dev Code Checkout') {
 	       when {
                 beforeAgent true
-                branch 'master'
+                branch 'stg'
               }
 	
       steps {
