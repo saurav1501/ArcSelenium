@@ -17,7 +17,8 @@ stages{
                 
                
 	        echo 'Checking out master'
-			   
+		 echo 'Checking out master'
+			      
 		
 	       
 	        echo 'Checking out master'
