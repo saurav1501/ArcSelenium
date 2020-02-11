@@ -8,15 +8,12 @@ pipeline {
       steps {
        echo 'Dev Code Checkout'
        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+       echo 'env'
        echo "${env.ref}"
           
       }
     }
     stage('Build And Test') {
-	     when {
-                beforeAgent true
-                branch 'master'
-              }
             steps {
                 echo 'maven clean'
                 wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
