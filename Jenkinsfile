@@ -17,6 +17,7 @@ stages{
                 
                
 	        echo 'Checking out master'
+			    echo 'Checking out master'
 	       
 	        
 		git branch: 'master', url: 'https://github.com/saurav1501/ArcSelenium.git'
