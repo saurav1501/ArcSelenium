@@ -1,10 +1,6 @@
-
 env.agentName = ""
-
-
 pipeline {
-  agent any 
-	 
+agent any 	 
 triggers {
     GenericTrigger(
      genericVariables: [
@@ -15,13 +11,12 @@ triggers {
      silentResponse: false,  
     )
   }
-	
-	stages {
+stages {
         stage('Prep') {
             steps {
                 script {
 		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-                    println branch_name
+                    println "${env.GIT_BRANCH}" 
                     if ("${env.GIT_BRANCH}" == "origin/master") {
                         env.agentName = "master"
                     } else {
