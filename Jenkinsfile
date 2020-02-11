@@ -9,13 +9,14 @@ triggers {
      printContributedVariables: true,
      printPostContent: true,
      silentResponse: false,
-     echo "Hello ${params.ref}"
+     
     )
   }
 stages {
         stage('Prep') {
             steps {
                 script {
+		    echo "${params.ref}"
 		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                     println "${env.GIT_BRANCH}" 
                     if ("${env.GIT_BRANCH}" == "origin/master") {
