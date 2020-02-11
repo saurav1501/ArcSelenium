@@ -15,7 +15,7 @@ triggers {
     stage('Some step') {
       steps {
         
-	      echo  '${GIT_BRANCH}'
+	      echo  '${env.GIT_BRANCH}'
       }
     }
    
