@@ -8,7 +8,7 @@ pipeline{
 	 
 
 stages{
-		stage('Git checkout sdfdDevefgloper') 
+		stage('Git checkout sdfdDevefglopeddr') 
 		{
 		steps
 		{
