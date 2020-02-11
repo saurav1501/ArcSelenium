@@ -27,7 +27,7 @@ stages{
 		}
 		}
 		}
-		stage('Checkout Testing Projedsdfdct') 
+		stage('Checkout Testweweing Projedsdfdct') 
 		{
 		steps{
 		
