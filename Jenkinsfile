@@ -1,10 +1,10 @@
+
+env.agentName = ""
+branch_name = "${env.BRANCH_NAME}"
+
 pipeline {
   agent any 
-	  environment {
-		  branch1='${env.GIT_BRANCH}'
-        }
-	
-	
+	 
 triggers {
     GenericTrigger(
      genericVariables: [
@@ -16,22 +16,26 @@ triggers {
     )
   }
 	
+	stages {
+        stage('Prep') {
+            steps {
+                script {
+		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+                    println branch_name
+                    if ("${branch_name}" == "origin/master") {
+                        env.agentName = "master"
+                    } else {
+                        env.agentName = "stg"
+                    }
+                }
+            }
+        }
 	
-  stages {
-    
-   
-       stage('Dev Code Checkout') {
-       steps {
-       echo 'Dev Code Checkout'
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-     
-          
-      }
-    }
+
     stage('Build And Test') {
             steps {
 		echo "${env.GIT_BRANCH}"
-		 echo "${env.BRANCH_NAME}"
+		echo "${env.agentName}"
 		    
 		    
                 echo 'maven clean'
