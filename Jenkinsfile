@@ -16,7 +16,7 @@ stages{
                     retry(5) {
                 
                
-	        
+	        echo 'Checking out master'
 	       
 	        
 		git branch: 'master', url: 'https://github.com/saurav1501/ArcSelenium.git'
