@@ -18,24 +18,22 @@ triggers {
 	
 	
   stages {
-    stage('Some step') {
-      steps {
-        
-	      echo  branch1
-	      echo "${GIT_BRANCH}"
-      }
-    }
+    
    
        stage('Dev Code Checkout') {
-      steps {
+       steps {
        echo 'Dev Code Checkout'
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']],extensions: [[$class: ‘LocalBranch’, localBranch: “**”]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
      
           
       }
     }
     stage('Build And Test') {
             steps {
+		echo "${GIT_BRANCH}"
+		 echo "${env.BRANCH_NAME}"
+		    
+		    
                 echo 'maven clean'
                 wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
                 //ABC indicates the folder name where the pom.xml file resides
