@@ -17,7 +17,7 @@ triggers {
      silentResponse: false,
 
      regexpFilterText: '$ref',
-     regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
+    
     )
   }
   stages {
