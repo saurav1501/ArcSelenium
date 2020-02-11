@@ -17,7 +17,7 @@ triggers {
      silentResponse: false,
 
      regexpFilterText: '$ref',
-	    regexpFilterExpression: 'refs/heads/' + GIT_BRANCH
+	    regexpFilterExpression: 'refs/heads/' + env.GIT_BRANCH
 	    
      
     )
