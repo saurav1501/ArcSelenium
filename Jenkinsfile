@@ -21,7 +21,6 @@ stages {
                         env.agentName = "dev"
 		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
                         env.agentName = "stg"
-                    }
 		} else if("${env.GIT_BRANCH}" == "origin/qas"){
                         env.agentName = "qas"
                     }
