@@ -19,7 +19,7 @@ stages{
                 
 		echo "checkout Developer Code.."
 		git branch: 'master', url: 'https://github.com/saurav1501/ArcSelenium.git'
-		echo "Building the Code............"
+		echo "Building the Code...."
 	    shell "mvn clean install"
 		}
 		}
