@@ -8,7 +8,8 @@ triggers {
      ],
      printContributedVariables: true,
      printPostContent: true,
-     silentResponse: false,  
+     silentResponse: false,
+     echo "Hello ${params.ref}"
     )
   }
 stages {
