@@ -17,7 +17,7 @@ stages{
                 
                  echo "checkout Developer Code.."
 	        
-	        echo "checkout Developer Code.."
+	        
 	        
 	       
 		git branch: 'master', url: 'https://github.com/saurav1501/ArcSelenium.git'
