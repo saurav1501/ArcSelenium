@@ -23,14 +23,14 @@ triggers {
        stage('Dev Code Checkout') {
        steps {
        echo 'Dev Code Checkout'
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']],extensions: [[$class: ‘LocalBranch’, localBranch: “**”]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
      
           
       }
     }
     stage('Build And Test') {
             steps {
-		echo "${GIT_BRANCH}"
+		echo "${env.GIT_BRANCH}"
 		 echo "${env.BRANCH_NAME}"
 		    
 		    
