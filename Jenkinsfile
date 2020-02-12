@@ -2,6 +2,13 @@ env.agentName = ""
 pipeline {
 agent any	 
 stages {
+	stage('git Checkout'){
+		steps{
+			checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+          
+		}
+	}
+	
 	stage('Preparing Build') {
 		when {
                 beforeAgent true
