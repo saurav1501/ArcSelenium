@@ -26,8 +26,8 @@ stages {
                         env.agentName = "master"
 		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
                         env.agentName = "stg"
-		    } else if("${env.GIT_BRANCH}" == "origin/qas"){
-                        env.agentName = "qas"
+		    } else {
+                        env.agentName = "false"
                     }
 			checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                  
