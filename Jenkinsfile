@@ -33,7 +33,8 @@ tools {
 
     stage('Build And Test') {
 	    when {
-                branch 'master'
+		 beforeAgent true   
+                
               }
             steps {    
                 echo 'maven clean'
