@@ -52,7 +52,8 @@ stages {
      stage('Publish Results') {
             steps {
                 echo 'Commencing Email'   
-		     echo 'Commencing Email'    
+		     echo 'Commencing Email' 
+		    echo 'Commencing Email'
         
             }
     }
