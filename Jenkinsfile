@@ -1,37 +1,21 @@
 env.agentName = ""
 pipeline {
 agent any	 
-triggers {
-    GenericTrigger(
-     genericVariables: [
-      [key: 'ref', value: '.ref']
-     ],
-     printContributedVariables: true,
-     printPostContent: true,
-     silentResponse: false,
-     
-    )
-  }
 stages {
-	stage('Prep') {
-		agent any
+	stage('Preparing Build') {
 		when {
                 beforeAgent true
-                branch 'feature'
+                branch 'master'
               }
             steps {
                 script {	
 		    println "${env.GIT_BRANCH}" 
-			println "${env.GIT_BRANCH}" 
-			println "${env.GIT_BRANCH}" 
                     if ("${env.GIT_BRANCH}" == "origin/master") {
                         env.agentName = "master"
 		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
                         env.agentName = "stg"
-		    } else {
-                        env.agentName = "false"
-                    }
-			checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+		    } 
+		checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                  
                 }
             }
@@ -39,8 +23,6 @@ stages {
 	
 
     stage('Build And Test') {
-	   
-	 
             steps {    
                 echo 'maven clean'
                 wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
