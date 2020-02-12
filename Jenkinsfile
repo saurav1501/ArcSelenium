@@ -16,7 +16,7 @@ stages {
         stage('Prep') {
             steps {
                 script {
-		     def BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+		     def BRANCH = sh(returnStdout: true, script: 'git rev-parse').trim()
                      println "${BRANCH}"
 		     println "${env.GIT_BRANCH}" 
 		     if ("${BRANCH}" == "master") {
