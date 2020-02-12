@@ -16,9 +16,11 @@ stages {
         stage('Prep') {
             steps {
                 script {
-		     def BRANCH = sh(returnStdout: true, script: 'git rev-parse').trim()
-                     println "${BRANCH}"
-		     println "${env.GIT_BRANCH}" 
+		    git rev-parse --abbrev-ref HEAD > GIT_BRANCH'
+                   git_branch = readFile('GIT_BRANCH').trim()
+                   echo git_branch
+		   println git_branch
+		    println "${env.GIT_BRANCH}" 
 		     if ("${BRANCH}" == "master") {
                         env.agentName = "dev"
 		     }
