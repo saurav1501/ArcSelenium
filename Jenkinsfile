@@ -11,7 +11,7 @@ tools {
 
       steps {
        checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-       git ls-remote --heads origin | grep $(git rev-parse HEAD) | cut -d / -f 3            
+             
       }
     }
 	
@@ -32,8 +32,7 @@ tools {
 	
 
     stage('Build And Test') {
-	     when {
-                beforeAgent true
+	    when {
                 branch 'master'
               }
             steps {    
