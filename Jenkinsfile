@@ -1,6 +1,6 @@
 env.agentName = ""
 pipeline {
-agent none	 
+agent any	 
 triggers {
     GenericTrigger(
      genericVariables: [
@@ -13,10 +13,9 @@ triggers {
     )
   }
 stages {
-        stage('Prep') {
-		agent any
+	stage('Prep') {
 		when {
-                branch 'master'
+                branch 'stg'
 		beforeAgent true
               }
             steps {
