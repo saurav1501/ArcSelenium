@@ -22,6 +22,7 @@ stages {
                 script {	
 		    println "${env.GIT_BRANCH}" 
 			println "${env.GIT_BRANCH}"
+			echo 'Commencing Email'    
 		     
                     if ("${env.GIT_BRANCH}" == "origin/master") {
                         env.agentName = "master"
