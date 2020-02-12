@@ -16,7 +16,7 @@ stages {
         stage('Prep') {
 		when {
                 beforeAgent true
-                branch 'master'
+                branch env.agentName
               }
             steps {
                 script {	
