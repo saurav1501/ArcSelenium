@@ -16,10 +16,9 @@ stages {
         stage('Prep') {
             steps {
                 script {
-		    git rev-parse --abbrev-ref HEAD > GIT_BRANCH'
-                   git_branch = readFile('GIT_BRANCH').trim()
-                   echo git_branch
-		   println git_branch
+			println '${env.getEnvironment()}'
+			println '${env.BRANCH}' 
+
 		    println "${env.GIT_BRANCH}" 
 		  
 		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
