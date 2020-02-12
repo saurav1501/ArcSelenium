@@ -3,10 +3,11 @@ pipeline {
     stages {
 	    
 	stage('Example Build') { 
-	when {
-        expression {
-        return sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true) == "master"
-         }
+      
+      when {
+      expression {
+      return env.GIT_BRANCH == "origin/master"
+     }
 	}
             steps {
                 echo 'Hello World'
