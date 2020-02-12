@@ -20,12 +20,7 @@ stages {
               }
             steps {
                 script {	
-		    println "${env.GIT_BRANCH}" 
-			println "${env.GIT_BRANCH}"
-			println "${env.GIT_BRANCH}"
-			println "${env.GIT_BRANCH}"
-			
-			
+		    println "${env.GIT_BRANCH}" 	
                     if ("${env.GIT_BRANCH}" == "origin/master") {
                         env.agentName = "master"
 		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
