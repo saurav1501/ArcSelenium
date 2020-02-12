@@ -15,10 +15,16 @@ pipeline {
             }
         }
         stage('Example Deploy') {
-            
+             when {
+                beforeAgent true
+                branch 'stg'
+              }
             steps {
                 echo 'Deploying'
 		     echo 'Deploying'
+		      echo 'Hello World'
+		    echo 'Hello World'
+		    echo 'Hello World'
 		   
             }
         }
