@@ -15,8 +15,8 @@ triggers {
 stages {
         stage('Prep') {
 		when {
-                beforeAgent false
                 branch 'master'
+		beforeAgent true
               }
             steps {
                 script {	
