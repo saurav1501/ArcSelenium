@@ -16,8 +16,10 @@ stages {
         stage('Prep') {
             steps {
                 script {
-			println '${env.getEnvironment()}'
-			println '${env.BRANCH}' 
+			
+			echo ${env.getEnvironment()}
+			echo ${env.BRANCH}
+			echo ${env.BRANCH_NAME}
 
 		    println "${env.GIT_BRANCH}" 
 		  
