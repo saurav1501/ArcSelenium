@@ -4,12 +4,10 @@ pipeline {
 	    
 	stage('Example Build') { 
       
-      when {
-      expression {
-      beforeAgent true
-      return env.GIT_BRANCH == "origin/master"
-     }
-	}
+        when {
+                beforeAgent true
+                branch 'master'
+              }
             steps {
                 echo 'Hello World'
             }
