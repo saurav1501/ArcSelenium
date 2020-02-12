@@ -22,8 +22,7 @@ pipeline {
                 echo 'Deploying'
 		     echo 'Deploying'
 		      echo 'Hello World'
-		    echo 'Hello World'
-		    echo 'Hello World'
+		    
 		   
             }
         }
