@@ -6,6 +6,7 @@ pipeline {
       
       when {
       expression {
+      beforeAgent true
       return env.GIT_BRANCH == "origin/master"
      }
 	}
