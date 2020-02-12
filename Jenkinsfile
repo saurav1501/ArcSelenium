@@ -18,6 +18,8 @@ pipeline {
             steps {
                 echo 'Deploying'
 		     echo 'Deploying'
+		     echo 'Deploying'
+		     echo 'Deploying'
             }
         }
     }
