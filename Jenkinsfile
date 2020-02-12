@@ -14,9 +14,10 @@ triggers {
   }
 stages {
 	stage('Prep') {
+		agent any
 		when {
-                environment name: 'REPOSITORY_BRANCH', value: 'master'
                 beforeAgent true
+                branch 'feature'
               }
             steps {
                 script {	
