@@ -19,7 +19,7 @@ stages {
 		    println "${env.GIT_BRANCH}" 
 		     println "${env.GIT_BRANCH}" 
                     if ("${env.GIT_BRANCH}" == "origin/master") {
-                        env.agentName = "dev"
+                        env.agentName = "stg"
 		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
                         env.agentName = "stg"
 		    } else if("${env.GIT_BRANCH}" == "origin/qas"){
