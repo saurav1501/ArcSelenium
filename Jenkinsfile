@@ -8,12 +8,9 @@ tools {
  stages {
         
      stage('Dev Code Checkout') {
-	     when {
-                beforeAgent true
-                branch 'master'
-              }
+
       steps {
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+       checkout([$class: 'GitSCM', branches: [[name: env.GIT_BRANCH]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                      
       }
     }
@@ -35,6 +32,10 @@ tools {
 	
 
     stage('Build And Test') {
+	     when {
+                beforeAgent true
+                branch 'master'
+              }
             steps {    
                 echo 'maven clean'
                 wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
