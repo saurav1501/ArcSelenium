@@ -1,19 +1,25 @@
 env.agentName = ""
 pipeline {
-agent any	 
-stages {
-	stage('git Checkout'){
-		steps{
-			checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-          
-		}
-	}
-	
-	stage('Preparing Build') {
-		when {
+agent any
+tools {
+        maven 'Maven'
+    
+    }
+ stages {
+        
+     stage('Dev Code Checkout') {
+	     when {
                 beforeAgent true
                 branch 'master'
               }
+      steps {
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+                     
+      }
+    }
+	
+	stage('Preparing Build') {
+		
             steps {
                 script {	
 		    println "${env.GIT_BRANCH}" 
@@ -22,8 +28,7 @@ stages {
 		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
                         env.agentName = "stg"
 		    } 
-		checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-                 
+		    
                 }
             }
         }
