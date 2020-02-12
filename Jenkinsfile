@@ -16,6 +16,8 @@ stages {
         stage('Prep') {
             steps {
                 script {
+		     def BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+                     echo ${BRANCH}
 		     sh "${ref}"
 		    checkout([$class: 'GitSCM', branches: [[name: '*/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                     println "${env.GIT_BRANCH}" 
