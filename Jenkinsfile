@@ -17,9 +17,9 @@ stages {
             steps {
                 script {
 			
-			echo ${env.getEnvironment()}
-			echo ${env.BRANCH}
-			echo ${env.BRANCH_NAME}
+			echo env.getEnvironment()
+			echo env.BRANCH
+			echo env.BRANCH_NAME
 
 		    println "${env.GIT_BRANCH}" 
 		  
