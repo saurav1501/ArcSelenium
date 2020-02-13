@@ -5,8 +5,9 @@ pipeline {
 agent any 	 
 stages {
         stage('Checkout Developer Code') {
-            steps {
-                script {			    
+           steps {
+		   
+           script {			    
 			
             if ("${env.GIT_BRANCH}" == "master") {
                     env.agentName = "master"
@@ -16,18 +17,14 @@ stages {
                         env.agentName = "false"
                    }
 		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-                 
-                }
-		    script {
-			
-			prop = new Properties();
+                        prop = new Properties();
 			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
 		        prop.load(config);
 			prop['environment'] == env.agentName
 			echo prop.getProperty("environment")
-              }
+                }
+		  		
             }
-        }
 }
 
     stage('Checkout Testing Code') {
