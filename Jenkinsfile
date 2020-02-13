@@ -20,18 +20,18 @@ stages {
         stage('Prep') {
 		when {
                 beforeAgent true
-                branch 'master'
+                branch env.GIT_BRANCH
               }
             steps {
                 script {	
-		    println "${env.GIT_BRANCH}" 
+		        println "${env.GIT_BRANCH}" 
 			println "${env.GIT_BRANCH}"
 			println "${env.GIT_BRANCH}"
 			
 			
-                    if ("${env.GIT_BRANCH}" == "origin/master") {
+                    if ("${env.GIT_BRANCH}" == "master") {
                         env.agentName = "master"
-		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
+		    } else if("${env.GIT_BRANCH}" == "stg"){
                         env.agentName = "stg"
 		    } else {
                         env.agentName = "false"
