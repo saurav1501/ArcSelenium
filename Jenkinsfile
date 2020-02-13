@@ -1,5 +1,6 @@
 env.agentName = ""
 Properties prop
+
 pipeline {
 agent any 	 
 stages {
@@ -56,6 +57,7 @@ stages {
                   echo 'Commencing Email'
         
             }
+    }
     }
     }
 }
