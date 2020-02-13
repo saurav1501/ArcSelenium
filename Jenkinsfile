@@ -23,6 +23,7 @@ stages {
 		    println "${env.GIT_BRANCH}" 
 			println "${env.GIT_BRANCH}"
 			
+			println "${env.GIT_BRANCH}"
 			
 			
                     if ("${env.GIT_BRANCH}" == "origin/master") {
