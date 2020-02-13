@@ -20,8 +20,8 @@ stages {
                         prop = new Properties();
 			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
 		        prop.load(config);
-			prop['environment'] == env.agentName
-			echo prop.getProperty("environment")
+		        prop.setProperty("environment", env.agentName);
+			    echo prop.getProperty("environment")
                 }
 		  		
             }
