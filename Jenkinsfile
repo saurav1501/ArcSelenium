@@ -63,7 +63,7 @@ post {
 	    
 	    
     }
-	 any {
+	 always {
           publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'HTMLReport', reportTitles: ''])
 	  publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'custom-emailable-report.html', reportName: 'HTMLReport', reportTitles: ''])
 	   
