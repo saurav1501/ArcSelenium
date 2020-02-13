@@ -4,6 +4,8 @@
 	
 	<listeners>
 		<listener class-name="com.arc.utility.ExtentListeners"></listener>
+		<listener class-name="com.arc.utility.CustomTestNGReporter"></listener>
+		
 		
 		
 	</listeners> 
