@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	parameters{
-		choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
+	choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
         choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
 	 }
     
@@ -16,6 +16,7 @@ pipeline {
             steps {
                 echo 'Hello World'
 		      echo 'Hello World'
+		         echo 'Hello World'
 		echo 'Hello World'
 		    echo 'Hello World'  echo 'Hello World'
 		echo 'Hello World'
