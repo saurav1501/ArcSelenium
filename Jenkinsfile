@@ -5,16 +5,12 @@ agent any
 stages {
         stage('Checkout Developer Code') {
             steps {
-                script {	
-		    println "${env.GIT_BRANCH}" 
-			println "${env.GIT_BRANCH}"
-			println "${env.GIT_BRANCH}"
+                script {			    
 			
-			
-                    if ("${env.GIT_BRANCH}" == "master") {
-                        env.agentName = "master"
+            if ("${env.GIT_BRANCH}" == "master") {
+                    env.agentName = "master"
 		    } else if("${env.GIT_BRANCH}" == "stg"){
-                        env.agentName = "stg"
+                   env.agentName = "stg"
 		    } else {
                         env.agentName = "false"
                     }
@@ -26,10 +22,9 @@ stages {
 	
 
     stage('Checkout Testing Code') {
-            steps {    
-              
-                wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
-                checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+           steps {     
+           wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
+           checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                
 		script {
 			sh 'printenv'
@@ -46,9 +41,7 @@ stages {
         }
     }
 	 stage('Executing Testing Code') {
-            steps {  
-		
-		
+         steps {  
 		 echo 'maven clean Install'
 		 shell "mvn clean install"
 		 sh ' mvn -f pom.xml clean install'
@@ -60,9 +53,7 @@ stages {
 	
      stage('Publish Results') {
             steps {
-                echo 'Commencing Email'   
-		     echo 'Commencing Email' 
-		    echo 'Commencing Email'
+                  echo 'Commencing Email'
         
             }
     }
