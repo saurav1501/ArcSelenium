@@ -32,7 +32,7 @@ stages {
                
 		script {
 			def props = readFile("Env/Config.properties")
-			env['environment'] = props['environment']
+			def environment = prop.getProperty("environment");
 			
                 }
             
@@ -42,7 +42,7 @@ stages {
 	 stage('Executing Testing Code') {
             steps {  
 		 echo env.environment
-		  echo env.environment
+		 echo env.environment
 		 echo 'maven clean Install'
 		 shell "mvn clean install"
 		 sh ' mvn -f pom.xml clean install'
