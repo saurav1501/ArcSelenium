@@ -39,18 +39,13 @@ pipeline{
       
 
 post {
-    success {
-      hipchatSend (color: 'GREEN', notify: true,
-      message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-        )
-   
-         emailext (to: 'ssinha@usgbc.org', subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-         body : readFile("Reports/custom-emailable-report.html"),   
-         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);   
-	    
-    }
-
-    failure {
+always {
+          publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'HTMLReport', reportTitles: ''])
+	  publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'custom-emailable-report.html', reportName: 'HTMLReport', reportTitles: ''])
+	   
+	}
+	
+     failure {
      
       hipchatSend (color: 'RED', notify: true,
         message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
@@ -62,11 +57,19 @@ post {
 	    
 	    
     }
-	 always {
-          publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'HTMLReport', reportTitles: ''])
-	  publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'custom-emailable-report.html', reportName: 'HTMLReport', reportTitles: ''])
-	   
-	}
+    success {
+      hipchatSend (color: 'GREEN', notify: true,
+      message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+        )
+   
+         emailext (to: 'ssinha@usgbc.org', subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+         body : readFile("Reports/custom-emailable-report.html"),   
+         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);   
+	    
+    }
+
+    
+	 
   }
 
 }   
