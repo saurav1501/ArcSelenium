@@ -68,11 +68,7 @@ public class BaseClass {
 		
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
-		
-		/*environment = prop.getProperty("environment");
-		browserName = prop.getProperty("browserName");
-	*/	
-		
+			
 		if((System.getenv("browserName")!=null && !System.getenv("browserName").isEmpty())
 				
 		 && System.getenv("environment")!=null && !System.getenv("environment").isEmpty() ){
@@ -82,15 +78,7 @@ public class BaseClass {
 			
 			System.out.println(browserName);
 			System.out.println(environment);
-			System.out.println(environment);
-			System.out.println(environment);
-			System.out.println(environment);
 			
-			System.out.println(environment);
-			System.out.println(environment);
-			
-			System.out.println(environment);
-			System.out.println(environment);
 			
 			
 		}else{
@@ -151,7 +139,7 @@ public class BaseClass {
 
 		driver.manage().window().maximize();
 		driver.manage().window().setSize(new org.openqa.selenium.Dimension(1366,1280));
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(60, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 30);
