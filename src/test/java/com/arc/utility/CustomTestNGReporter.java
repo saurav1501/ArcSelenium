@@ -59,7 +59,7 @@ public class CustomTestNGReporter implements IReporter {
 			//customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Detail\\$", customTestMethodSummary);
 			
 			// Write replaced test report content to custom-emailable-report.html.
-			File targetFile = new File(outputDirectory + System.getProperty("user.dir")+"/src/test/java/com/arc/utility/custom-emailable-report.html");
+			File targetFile = new File(System.getProperty("user.dir")+"/src/test/java/com/arc/utility/custom-emailable-report.html");
 			FileWriter fw = new FileWriter(targetFile);
 			fw.write(customReportTemplateStr);
 			fw.flush();
@@ -142,22 +142,22 @@ public class CustomTestNGReporter implements IReporter {
 					retBuf.append("</td>");
 				*/	
 					/* Total method count. */
-					retBuf.append("<td bgcolor=HotPink>");
+					retBuf.append("<td bgcolor=009999>");
 					retBuf.append(totalTestCount);
 					retBuf.append("</td>");
 					
 					/* Passed method count. */
-					retBuf.append("<td bgcolor=green>");
+					retBuf.append("<td bgcolor=33FF00>");
 					retBuf.append(totalTestPassed);
 					retBuf.append("</td>");
 					
 					/* Skipped method count. */
-					retBuf.append("<td bgcolor=yellow>");
+					retBuf.append("<td bgcolor=CCFF33>");
 					retBuf.append(totalTestSkipped);
 					retBuf.append("</td>");
 					
 					/* Failed method count. */
-					retBuf.append("<td bgcolor=red>");
+					retBuf.append("<td bgcolor=CC3333>");
 					retBuf.append(totalTestFailed);
 					retBuf.append("</td>");
 					
@@ -177,32 +177,32 @@ public class CustomTestNGReporter implements IReporter {
 					}*/
 					
 					/* Append browser type. */
-					retBuf.append("<td bgcolor=Aqua>");
-					retBuf.append(browserName.toUpperCase());
+					retBuf.append("<td bgcolor=009966>");
+					retBuf.append(browserName.substring(0, 1).toUpperCase());
 					retBuf.append("</td>");
 					
-					retBuf.append("<td bgcolor=LightSalmon>");
-					retBuf.append(environment.toUpperCase());
+					retBuf.append("<td bgcolor=009999>");
+					retBuf.append(environment.substring(0, 1).toUpperCase());
 					retBuf.append("</td>");
 					
 					
 					/* Start Date*/
 					Date startDate = testObj.getStartDate();
-					retBuf.append("<td bgcolor=Lime>");
+					retBuf.append("<td bgcolor=0099CC>");
 					retBuf.append(this.getDateInStringFormat(startDate));
 					retBuf.append("</td>");
 					
 					/* End Date*/
 					Date endDate = testObj.getEndDate();
 				
-					retBuf.append("<td bgcolor=GreenYellow>");
+					retBuf.append("<td bgcolor=0099FF>");
 					retBuf.append(this.getDateInStringFormat(endDate));
 					retBuf.append("</td>");
 					
 					/* Execute Time */
 					long deltaTime = endDate.getTime() - startDate.getTime();
 					String deltaTimeStr = this.convertDeltaTimeToString(deltaTime);
-					retBuf.append("<td bgcolor=Lime>");
+					retBuf.append("<td bgcolor=00CCFF>");
 					retBuf.append(deltaTimeStr);
 					retBuf.append("</td>");
 					
@@ -254,7 +254,7 @@ public class CustomTestNGReporter implements IReporter {
 		
 		long hours = minutes / 60;
 		
-		retBuf.append(hours + ":" + minutes + ":" + seconds + ":" + milli);
+		retBuf.append(hours + ":" + minutes + ":" + seconds);
 		
 		return retBuf.toString();
 	}
@@ -309,23 +309,23 @@ public class CustomTestNGReporter implements IReporter {
 	{
 		StringBuffer retStrBuf = new StringBuffer();
 		
-		String resultTitle ="Test";
+		String resultTitle ="";
 		
 		String color = "green";
 		
 		if(skippedResult)
 		{
-			resultTitle += " - Skipped ";
+			resultTitle += "Skipped ";
 			color = "yellow";
 		}else
 		{
 			if(!passedReault)
 			{
-				resultTitle += " - Failed ";
+				resultTitle += "Failed ";
 				color = "red";
 			}else
 			{
-				resultTitle += " - Passed ";
+				resultTitle += "Passed ";
 				color = "green";
 			}
 		}
@@ -391,7 +391,7 @@ public class CustomTestNGReporter implements IReporter {
 				exceptionMessage = sw.toString();
 			}
 			
-			retStrBuf.append("<tr bgcolor=" + color + ">");
+			retStrBuf.append("<tr bgcolor= 33FFCC>");
 			
 			/* Add test class name. */
 			retStrBuf.append("<td>");
@@ -407,7 +407,7 @@ public class CustomTestNGReporter implements IReporter {
 			retStrBuf.append(testName );
 			retStrBuf.append("</td>");
 			
-			retStrBuf.append("<td>");
+			retStrBuf.append("<td bgcolor="+color +">");
 			retStrBuf.append(resultTitle );
 			retStrBuf.append("</td>");
 			

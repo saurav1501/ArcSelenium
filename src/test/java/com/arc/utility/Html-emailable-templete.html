@@ -28,7 +28,7 @@ table, th, td {
 }
 th, td {
 
-  padding: 2px;
+  padding: 1px;
   text-align: center; 
 }
 table {
@@ -38,7 +38,16 @@ table {
   float: left;
   margin:1px;
   border-spacing: 1px;
-  background-color: LightSteelBlue
+  background-color: rgb(200,0,0)
+}
+table {
+
+  border-collapse: collapse;
+  border: 1px CC9933;
+  float: left;
+  margin:1px;
+  border-spacing: 1px;
+  background-color: FF3333
 }
 
 </style>
@@ -46,35 +55,35 @@ table {
 <body>
     <center><b><h1><font color="SandyBrown">ARC_Automation_Testing_Report</font></h1></b></center>
     <center><b><h3><a href="https://test.usgbc.org/job/Arc/ExtendReport/ARC_UITestingReport_Building.html" target="_blank">Click Here To View ARC Extend Report</a></p></b></h2></center> 
-     <table style="width:70%">
+     <table style="width:80%"cellspacing="1">
       <thead>
         <tr>
-          <th>Total_Test_Cases</th>
-          <th>Passed</th>
-          <th>Skipped</th>
-          <th>Failed</th>
-          <th>Browser_Name</th>
-          <th>Environment</th>
-          <th>Start_Time</th>
-          <th>End_Time</th>
-          <th>Total_Execute_Time (mm:hh:ss:ms)</th>
+          <th>TOTAL_TEST_CASE</th>
+          <th>PASSED</th>
+          <th>SKIPPED</th>
+          <th>FAILED</th>
+          <th>BROWSER</th>
+          <th>SERVER</th>
+          <th>START_TIME</th>
+          <th>END_TIME</th>
+          <th>EXECUTION_TIME</th>
         </tr>
        </thead> 
      $Test_Case_Summary$
     </table>
-    <br><br>
-    <table id="summary" cellspacing="20" style="width:80%">
+    <br><br><br><br><br>
+    <table id="summary" cellspacing="1" style="width:80%">
       <thead>
-        <tr>
-          <th>Class_Name</th>
-          <th>Method_Name</th>
-          <th>Project_Type</th>
-          <th>Test_Case_Status</th>
-          <th>Start_Time</th>
-          <th>Execution_Time (mm:hh:ss:ms)</th>
-          <th>Test_Case_Description_In_Details</th>
+        <tr bgcolor= 33FFCC>
+          <th>TEST_CASE_NAME</th>
+          <th>METHOD_NAME</th>
+          <th>RATINGS</th>
+          <th>STATUS</th>
+          <th>START_TIME</th>
+          <th>EXE_TIME</th>
+          <th>TEST_CASE_DESCRIPTION_DETAILS</th>
         </tr>
       </thead> 
        $Test_Case_Detail$
-    </table>
+    </table1>
   </body>
