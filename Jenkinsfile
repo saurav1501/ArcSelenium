@@ -31,17 +31,17 @@ stages {
                 checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                
 		script {
+			def props = readFile("Env/Config.properties")
+			env['environment'] = props['environment']
 			
-			File confi = new File(readFile("Env/Config.properties"));
-			prop.load(confi);
-			prop.setProperty(env.agentName, environment);
                 }
             
             }
         }
     }
 	 stage('Executing Testing Code') {
-            steps {    
+            steps {  
+		 echo env.environment
 		 echo 'maven clean Install'
 		 shell "mvn clean install"
 		 sh ' mvn -f pom.xml clean install'
