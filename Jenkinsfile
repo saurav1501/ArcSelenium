@@ -33,8 +33,7 @@ stages {
                
 		script {
 			FileInputStream confi = new FileInputStream(readFile("Env/Config.properties"))
-		        prop.load(confi)
-			prop.setProperty("environment", env.agentName);
+		        prop.load(confi).setProperty("environment", env.agentName);
 			
 			
 			
