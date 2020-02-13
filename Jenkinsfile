@@ -1,24 +1,12 @@
 env.agentName = ""
 pipeline {
 agent any 	 
-triggers {
-    GenericTrigger(
-     genericVariables: [
-      [key: 'ref', value: '.ref']
-     ],
-     printContributedVariables: true,
-     printPostContent: true,
-     silentResponse: false,
-     
-    )
-  }
 stages {
         stage('Checkout Developer Code') {
             steps {
                 script {	
 		    println "${env.GIT_BRANCH}" 
 			println "${env.GIT_BRANCH}"
-			
 			println "${env.GIT_BRANCH}"
 			
 			
@@ -44,7 +32,10 @@ stages {
                 wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
                 //ABC indicates the folder name where the pom.xml file resides
                 checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-                sh ' mvn -f pom.xml clean install'
+                FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
+		prop.load(confi);
+		prop.setProperty(env.agentName, environment);
+		sh ' mvn -f pom.xml clean install'
                 }
             
             }
