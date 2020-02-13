@@ -34,8 +34,9 @@ stages {
 		script {
 			FileInputStream confi = new FileInputStream(readFile("Env/Config.properties"))
 		        prop.load(confi);
+			
+			prop['environment'] == env.agentName
 			echo prop.getProperty("environment");
-			prop.setProperty("environment", env.agentName);
 			
 			
                 }
