@@ -15,7 +15,7 @@ triggers {
 stages {
         stage('Checkout Developer Code') {
 		when {
-                beforeAgent false
+                beforeAgent true
                 branch env.GIT_BRANCH
               }
             steps {
