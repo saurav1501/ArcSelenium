@@ -1,4 +1,5 @@
 env.agentName = ""
+Properties prop
 pipeline {
 agent any 	 
 stages {
@@ -31,8 +32,10 @@ stages {
                 checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                
 		script {
-			def props = readFile("Env/Config.properties")
-			def environment = prop.getProperty("environment");
+			FileInputStream confi = new FileInputStream(readFile("Env/Config.properties"));
+		        prop.load(confi);
+			prop.setProperty("environment", environment);
+			
 			
                 }
             
@@ -41,8 +44,8 @@ stages {
     }
 	 stage('Executing Testing Code') {
             steps {  
-		 echo env.environment
-		 echo env.environment
+		 echo prop.environment
+		 echo prop.environment
 		 echo 'maven clean Install'
 		 shell "mvn clean install"
 		 sh ' mvn -f pom.xml clean install'
