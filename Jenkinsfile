@@ -1,36 +1,43 @@
-pipeline{
-	agent any
-	parameters{
-		choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
-                choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
+env.agentName = ""
+Properties prop
+
+pipeline {
+agent any 	 
+stages {
+        stage('Checkout Developer Code') {
+           steps {
+		   
+           script {			    
+			
+            if ("${env.GIT_BRANCH}" == "master") {
+                    env.agentName = "master"
+		    } else if("${env.GIT_BRANCH}" == "stg"){
+                   env.agentName = "stg"
+		    } else {
+                        env.agentName = "false"
+                   }
+		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+                        prop = new Properties();
+			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
+		        prop.load(config);
+		        prop.setProperty("environment", env.agentName);
+			    echo prop.getProperty("environment")
+                }
+		  		
+            }
+}
+
+    stage('Checkout Testing Code') {
+           steps {     
+           wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
+           {
+                sh ' mvn -f pom.xml clean install'
 		
-	}
-	        
-	         stages{
-		
-		stage('Building Projek') 
-		{
-		steps{
-	       echo 'Commencing Email' 
-	        echo 'Commencing Email' 
-			 echo 'Commencing Email' 
-		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
-	
-		shell "mvn clean install"
-		}
-		}
-		
-		stage('Excuting Code...') 
-		 {
-		steps{
-		  wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
-		  {
-		  sh "mvn -f pom.xml clean install"
-	   	  }
-		  }
-		}
-		
-	stage('Publish Html Report') {
+            }
+        }
+    }
+
+stage('Publish Html Report') {
             steps {
                 echo 'Extend Report' 
 		sh 'bundle exec rake spec'
