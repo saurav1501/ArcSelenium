@@ -18,17 +18,7 @@ stages {
 		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                  
                 }
-            }
-        }
-	
-
-    stage('Checkout Testing Code') {
-           steps {     
-           wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
-           {
-           checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-            sh ' mvn -f pom.xml clean install'
-		script {
+		    script {
 			
 			prop = new Properties();
 			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
@@ -36,7 +26,16 @@ stages {
 			prop['environment'] == env.agentName
 			echo prop.getProperty("environment")
               }
-            
+            }
+        }
+}
+
+    stage('Checkout Testing Code') {
+           steps {     
+           wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
+           {
+                sh ' mvn -f pom.xml clean install'
+		
             }
         }
     }
