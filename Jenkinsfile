@@ -33,7 +33,7 @@ stages {
                
 		script {
 			FileInputStream confi = new FileInputStream(readFile("Env/Config.properties"))
-		        prop.load(confi).
+		        prop.load(confi);
 			
 			
 			
