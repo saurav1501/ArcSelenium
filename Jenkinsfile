@@ -5,10 +5,8 @@ pipeline {
 agent any 	 
 stages {
         stage('Checkout Developer Code') {
-           steps {
-		   
-           script {			    
-			
+           steps {	   
+           script {			    	
             if ("${env.GIT_BRANCH}" == "master") {
                     env.agentName = "stg"
 		    } else if("${env.GIT_BRANCH}" == "stg"){
@@ -39,46 +37,26 @@ stages {
 
 stage('Publish Html Report') {
             steps {
-                echo 'Extend Report' 
-		
-        
+                echo 'Extend Report'       
         }
-      
-
 post {
-always {
-          publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'HTMLReport', reportTitles: ''])
-	  publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'custom-emailable-report.html', reportName: 'HTMLReport', reportTitles: ''])
-	   
-	}
-	
-     failure {
-     
-      hipchatSend (color: 'RED', notify: true,
-        message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-        )
-
+	failure {
 	 emailext (to: 'ssinha@usgbc.org', subject: "FAILED: Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
          body : readFile("Reports/custom-emailable-report.html"),   
-         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);    
-	    
-	    
-    }
-    success {
-      hipchatSend (color: 'GREEN', notify: true,
-      message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-        )
-   
+         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);    	    
+         }
+         success {
          emailext (to: 'ssinha@usgbc.org', subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
          body : readFile("Reports/custom-emailable-report.html"),   
          mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);   
 	    
-    }
-
-    
-	 
+    }	 
   }
-
+post {
+	any{
+		publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'HTMLReport', reportTitles: ''])   
+	}
+}
 }   
 }
 }	
