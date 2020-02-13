@@ -27,12 +27,12 @@ stages {
            wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
            {
            checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-            
+            sh ' mvn -f pom.xml clean install'
 		script {
 			
 			prop = new Properties();
 			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
-		    prop.load(config);
+		        prop.load(config);
 			prop['environment'] == env.agentName
 			echo prop.getProperty("environment")
               }
@@ -43,7 +43,7 @@ stages {
 	 stage('Executing Testing Code') {
          steps {  
 		 echo 'maven clean Install'
-		 sh ' mvn -f pom.xml clean install'
+		
              }
           }
     }
