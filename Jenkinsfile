@@ -10,7 +10,7 @@ stages {
            script {			    
 			
             if ("${env.GIT_BRANCH}" == "master") {
-                    env.agentName = "master"
+                    env.agentName = "stg"
 		    } else if("${env.GIT_BRANCH}" == "stg"){
                    env.agentName = "stg"
 		    } else {
@@ -21,7 +21,7 @@ stages {
 			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
 		        prop.load(config);
 		        prop.setProperty("environment", env.agentName);
-			    echo prop.getProperty("environment")
+		        echo prop.getProperty("environment")
                 }
 		  		
             }
@@ -40,7 +40,7 @@ stages {
 stage('Publish Html Report') {
             steps {
                 echo 'Extend Report' 
-		sh 'bundle exec rake spec'
+		
         
         }
       
