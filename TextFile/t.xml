@@ -32,11 +32,7 @@
 <class name="com.arc.testcases.MyBuildings.LEEDfortransit.WaterFileUploadTest"></class>
 <class name="com.arc.testcases.MyBuildings.LEEDfortransit.InternationalLanguagesSpecaialCharacterMeterCreateTest"></class>
 <class name="com.arc.testcases.MyBuildings.LEEDfortransit.ETotalAnalyticsTooltipTest"/>
-<class name="com.arc.testcases.MyBuildings.LEEDfortransit.ProjectFieldVerificationTest"></class>
-<class name="com.arc.testcases.MyBuildings.LEEDfortransit.ModifyOccOptHrsProjectDetailsTest"></class>
-<class name="com.arc.testcases.MyBuildings.LEEDfortransit.ProjectDetailsVerificationTest"></class>
-<class name="com.arc.testcases.MyBuildings.LEEDfortransit.AddTeamMemberTest"></class>
-<class name="com.arc.testcases.MyBuildings.LEEDfortransit.EditMemberRoleManagerTest"></class>
+
 <class name="com.arc.testcases.MyBuildings.LEEDfortransit.VerifyPRFileDownloadTest"></class>
 <class name="com.arc.testcases.MyBuildings.LEEDfortransit.VerifyAgreementFileDownloadTest"></class>
 <class name="com.arc.testcases.MyBuildings.LEEDfortransit.InstallAllAppsTest"></class>
