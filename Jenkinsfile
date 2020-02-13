@@ -14,10 +14,6 @@ triggers {
   }
 stages {
         stage('Checkout Developer Code') {
-		when {
-                beforeAgent false
-                branch env.GIT_BRANCH
-              }
             steps {
                 script {	
 		    println "${env.GIT_BRANCH}" 
