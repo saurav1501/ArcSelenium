@@ -34,7 +34,7 @@ stages {
 		script {
 			sh 'printenv'
 			prop = new Properties();
-			prop = readProperties file : "${env.WORKSPACE}/Env/Config.properties"
+			FileInputStream confi = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
 		        prop.load(confi.newDataInputStream());
 			prop['environment'] == env.agentName
 			echo prop.getProperty("environment");
