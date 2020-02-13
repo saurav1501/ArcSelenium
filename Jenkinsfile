@@ -40,7 +40,7 @@ stages {
             }
         }
     }
-	 stage('Checkout Testing Code') {
+	 stage('Executing Testing Code') {
             steps {    
 		 echo 'maven clean Install'
 		 shell "mvn clean install"
