@@ -1,56 +1,68 @@
-pipeline{
-		agent any
-	
+env.agentName = ""
+pipeline {
+agent any 
 	parameters{
-		choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
-                choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
-		
-	}
-	        
-	         stages{
-		        stage('Building Project') 
-			  echo 'Extend Reporthh'   
-			 
-			  
-			    
-			
-		{
-		steps{
-		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
-		
-  		shell "mvn clean install"
-	       
-		
-		}
-		}
-		
-		stage('Excuting Code...') 
-		 {
-		steps{
-		  wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
-		  {
-		  sh "mvn -f pom.xml clean install"
-	   	  }
-		  }
-		}
-		
-	stage('Publish Html Report') {
+	choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
+        choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
+	 }
+triggers {
+    GenericTrigger(
+     genericVariables: [
+      [key: 'ref', value: '.ref']
+     ],
+     printContributedVariables: true,
+     printPostContent: true,
+     silentResponse: false,
+     
+    )
+  }
+stages {
+        stage('Prep') {
+		when {
+                beforeAgent true
+                branch env.GIT_BRANCH
+              }
             steps {
-                echo 'Extend Report'    
-		     echo 'Extend Report'   
-        
+                script {	
+		        println "${env.GIT_BRANCH}" 
+			println "${env.GIT_BRANCH}"
+			println "${env.GIT_BRANCH}"
+			
+			
+                    if ("${env.GIT_BRANCH}" == "master") {
+                        env.agentName = "master"
+		    } else if("${env.GIT_BRANCH}" == "stg"){
+                        env.agentName = "stg"
+		    } else {
+                        env.agentName = "false"
+                    }
+			checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+                 
+                }
+            }
         }
-      }
-     }
-	   
-      post {
-        always {
-         publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])
-	     emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
-         body : readFile("src/test/java/com/arc/utility/custom-emailable-report.html"),   
-         mimeType: 'text/html');
-	}
-   }
-      
-}
 	
+
+    stage('Build And Test') {
+	   
+	 
+            steps {    
+                echo 'maven clean'
+                wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, displayNameOffset: 1, installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 25]) {
+                //ABC indicates the folder name where the pom.xml file resides
+                checkout([$class: 'GitSCM', branches: [[name: env.agentName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+                sh ' mvn -f pom.xml clean install'
+                }
+            
+            }
+        }
+     stage('Publish Results') {
+            steps {
+                echo 'Commencing Email'   
+		     echo 'Commencing Email' 
+		    echo 'Commencing Email'
+        
+            }
+    }
+    }
+}
