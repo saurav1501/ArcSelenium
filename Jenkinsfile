@@ -37,6 +37,7 @@ stages {
 			prop.setProperty("environment", env.agentName);
 			
 			
+			
                 }
             
             }
@@ -44,7 +45,7 @@ stages {
     }
 	 stage('Executing Testing Code') {
             steps {  
-		 echo prop.environment
+		 echo prop.getProperty("environment");
 		 echo 'maven clean Install'
 		 shell "mvn clean install"
 		 sh ' mvn -f pom.xml clean install'
