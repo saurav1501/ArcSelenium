@@ -14,6 +14,7 @@ pipeline{
 		steps{
 	       echo 'Commencing Email' 
 	        echo 'Commencing Email' 
+			 echo 'Commencing Email' 
 		git branch: "${params.environment}", url: 'https://github.com/saurav1501/ArcSelenium.git'
 	
 		shell "mvn clean install"
