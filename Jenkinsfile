@@ -4,7 +4,7 @@ Properties prop
 pipeline {
 agent any 	 
 stages {
-        stage('Checkout Developer Code') {
+        stage('Checkout Developer Code..') {
            steps {
 		   
            script {			    
