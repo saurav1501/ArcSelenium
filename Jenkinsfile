@@ -32,7 +32,7 @@ stages {
                
 		script {
 			
-			FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
+			FileInputStream confi = new FileInputStream(readFile("Env/Config.properties"));
 			prop.load(confi);
 			prop.setProperty(env.agentName, environment);
                 }
