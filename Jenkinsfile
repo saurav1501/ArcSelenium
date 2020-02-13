@@ -34,7 +34,8 @@ stages {
 		script {
 			FileInputStream confi = new FileInputStream(readFile("Env/Config.properties"))
 		        prop.load(confi);
-			
+			echo prop.getProperty("environment");
+			prop.setProperty("environment", env.agentName);
 			
 			
                 }
@@ -44,8 +45,8 @@ stages {
     }
 	 stage('Executing Testing Code') {
             steps {  
-		 prop.setProperty("environment", env.agentName);
-		 echo prop.getProperty("environment");
+		
+		
 		 echo 'maven clean Install'
 		 shell "mvn clean install"
 		 sh ' mvn -f pom.xml clean install'
