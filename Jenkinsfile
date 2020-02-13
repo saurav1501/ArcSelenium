@@ -13,10 +13,10 @@ triggers {
     )
   }
 stages {
-        stage('Prep') {
+        stage('Checkout Developer Code') {
 		when {
                 beforeAgent true
-                branch 'stg'
+                branch env.GIT_BRANCH
               }
             steps {
                 script {	
@@ -26,14 +26,14 @@ stages {
 			println "${env.GIT_BRANCH}"
 			
 			
-                    if ("${env.GIT_BRANCH}" == "origin/master") {
+                    if ("${env.GIT_BRANCH}" == "master") {
                         env.agentName = "master"
-		    } else if("${env.GIT_BRANCH}" == "origin/stg"){
+		    } else if("${env.GIT_BRANCH}" == "stg"){
                         env.agentName = "stg"
 		    } else {
                         env.agentName = "false"
                     }
-			checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                  
                 }
             }
