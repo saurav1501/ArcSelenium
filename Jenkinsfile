@@ -1,6 +1,5 @@
 pipeline{
-		agent any
-	
+	agent any
 	parameters{
 		choice(choices: ['master', 'stg', 'dev', 'qas'], description: 'Select a branch to build project', name: 'environment')
                 choice(choices: ['firefox', 'chrome', 'ie'], description: 'Select browser to build project', name: 'browserName')
@@ -37,16 +36,43 @@ pipeline{
         
         }
       }
-     }
+
+	
+post {
+    success {
+      slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+      hipchatSend (color: 'GREEN', notify: true,
+      message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+        )
+   
+         emailext (to: 'ssinha@usgbc.org', subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+         body : readFile("Reports/custom-emailable-report.html"),   
+         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);   
+	    
+    }
+
+    failure {
+      slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+      hipchatSend (color: 'RED', notify: true,
+          message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+        )
+
+	 emailext (to: 'ssinha@usgbc.org', subject: "FAILED: Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+         body : readFile("Reports/custom-emailable-report.html"),   
+         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);    
+	    
+	    
+    }
+  }
+
+
+post {
+        any {
+          publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'HTMLReport', reportTitles: ''])
+	  publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'custom-emailable-report.html', reportName: 'HTMLReport', reportTitles: ''])
 	   
-      post {
-        always {
-         publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'Reports', reportFiles: 'ARC_UITestingReport_Building.html', reportName: 'ExtendReport', reportTitles: ''])
-	     emailext (to: 'ssinha@usgbc.org', subject: "Email Report subject: '${env.JOB_NAME} - BuildNumber # ${env.BUILD_NUMBER}' ", 
-         body : readFile("src/test/java/com/arc/utility/custom-emailable-report.html"),   
-         mimeType: 'text/html');
 	}
    }
-      
+}   
 }
 	
