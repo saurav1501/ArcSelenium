@@ -130,7 +130,7 @@ public class BaseClass {
 			   
 		    FirefoxOptions option = new FirefoxOptions();
 		    option.setProfile(profile);
-			option.addArguments("-headless");
+			/*option.addArguments("-headless");*/
 			driver = new FirefoxDriver();
 			
 		
