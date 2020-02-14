@@ -16,7 +16,7 @@ stages {
                         env.agentName = "false"
                    }
 		    echo env.agentName
-		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+		    checkout([$class: 'GitSCM', branches: [[name: env.GIT_BRANCH]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                         prop = new Properties();
 
 			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
