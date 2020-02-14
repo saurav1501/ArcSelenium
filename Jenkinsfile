@@ -27,8 +27,7 @@ stages {
 
     stage('Checkout Testing Code') {
            steps {   
-           checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])  
-           wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
+                wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
            {
                 sh ' mvn -f pom.xml clean install'
 		
@@ -46,13 +45,13 @@ post {
 	}
 	failure {
 	 emailext (to: 'ssinha@usgbc.org', subject: "FAILED: Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-         body : readFile("/Reports/custom-emailable-report.html"),   
-         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);    	    
+         body : readFile("Reports/custom-emailable-report.html"),   
+         mimeType: 'text/html');    	    
          }
          success {
          emailext (to: 'ssinha@usgbc.org', subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-         body : readFile("/Reports/custom-emailable-report.html"),   
-         mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);   
+         body : readFile("Reports/custom-emailable-report.html"),   
+         mimeType: 'text/html');   
 	    
     }	 
   }
