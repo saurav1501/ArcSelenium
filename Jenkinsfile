@@ -18,7 +18,7 @@ stages {
 		    echo env.agentName
 		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                         prop = new Properties();
-		        echo ${env.GIT_BRANCH}
+
 			FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
 		        prop.load(config);
 		        prop.setProperty("environment", env.agentName);
