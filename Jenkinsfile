@@ -25,6 +25,7 @@ stages {
 		        echo prop.getProperty("environment")
 		        echo prop.getProperty("environment")
 		        echo 'Set Proe'
+		        echo 'Set Proe'
                 }
 		  		
             }
