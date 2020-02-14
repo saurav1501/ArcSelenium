@@ -45,12 +45,12 @@ post {
 	}
 	failure {
 	 emailext (to: 'ssinha@usgbc.org', subject: "FAILED: Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-         body : readFile("Reports/custom-emailable-report.html"),   
+         body : readFile("/Reports/custom-emailable-report.html"),   
          mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);    	    
          }
          success {
          emailext (to: 'ssinha@usgbc.org', subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-         body : readFile("Reports/custom-emailable-report.html"),   
+         body : readFile("/Reports/custom-emailable-report.html"),   
          mimeType: 'text/html',recipientProviders: [[$class: 'DevelopersRecipientProvider']]);   
 	    
     }	 
