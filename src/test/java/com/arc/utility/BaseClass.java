@@ -65,6 +65,10 @@ public class BaseClass {
 	public void setup() throws Exception {
 		data = new XlsReader(System.getProperty("user.dir") + "/TestData/ArcTest.xlsx");
 		prop = new Properties();
+		System.out.println("Env");
+		System.out.println("Env");
+		System.out.println(System.getenv("agentName"));
+		System.out.println(System.getenv("env.agentName"));
 		
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
@@ -81,6 +85,7 @@ public class BaseClass {
 			
 			System.out.println(browserName);
 			System.out.println(environment);
+			System.out.println(browserName);
 			
 			
 			
@@ -95,9 +100,7 @@ public class BaseClass {
 			
 		}
 		
-	    	prop.setProperty("browserName", browserName);
-		    prop.setProperty("environment", environment);
-		
+	    	
 
 		if (prop.getProperty("browserName").equals("firefox")) {
 
