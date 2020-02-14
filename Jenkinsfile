@@ -1,4 +1,4 @@
-nv.agentName = ""
+env.agentName = ""
 Properties prop
 
 pipeline {
