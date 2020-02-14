@@ -76,12 +76,6 @@ public class BaseClass {
 			browserName = System.getenv("browserName");
 			environment   =   System.getenv("environment");
 			
-			System.out.println(browserName);
-			System.out.println(environment);
-			System.out.println(browserName);
-			
-			System.out.println(environment);
-			System.out.println(browserName);
 			System.out.println(environment);
 			System.out.println(browserName);
 			
