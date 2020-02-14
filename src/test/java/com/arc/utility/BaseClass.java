@@ -65,6 +65,8 @@ public class BaseClass {
 	public void setup() throws Exception {
 		data = new XlsReader(System.getProperty("user.dir") + "/TestData/ArcTest.xlsx");
 		prop = new Properties();
+		System.getenv("agentName");
+		System.out.println(System.getProperty("agentName"));
 		
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
