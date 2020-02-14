@@ -1,5 +1,5 @@
-env.agentName = ""
-Properties prop
+env.environment =""
+env.browserName= "firefox"
 
 pipeline {
 agent any 
@@ -16,13 +16,13 @@ stages {
 		   echo 'Hello World'
                    script {			    	
                    if ("${env.GIT_BRANCH}" == "master") {
-                   env.agentName = "stg"
+                   env.environment = "stg"
 		    } else if("${env.GIT_BRANCH}" == "stg"){
-                   env.agentName = "stg"
+                   env.environment = "stg"
 		    } else {
-                        env.agentName = "false"
+                    env.environment = "false"
                    }
-		    echo env.agentName
+		    echo env.environment
 		    checkout([$class: 'GitSCM', branches: [[name: 'master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
                     
                 }
