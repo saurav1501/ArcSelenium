@@ -78,6 +78,7 @@ public class BaseClass {
 			
 			System.out.println(browserName);
 			System.out.println(environment);
+			System.out.println(browserName);
 			
 			
 			
@@ -92,9 +93,7 @@ public class BaseClass {
 			
 		}
 		
-	    	prop.setProperty("browserName", browserName);
-		    prop.setProperty("environment", environment);
-		
+	    	
 
 		if (prop.getProperty("browserName").equals("firefox")) {
 
