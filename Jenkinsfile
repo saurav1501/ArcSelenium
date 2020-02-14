@@ -4,7 +4,7 @@ Properties prop
 pipeline {
 agent any 
 environment { 
-        agentName=env.agentName
+        agentName="${env.GIT_BRANCH}"
     }
 stages {
         stage('Checkout Developer Code') {
