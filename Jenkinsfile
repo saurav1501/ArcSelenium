@@ -14,8 +14,8 @@ stages {
 		    } else {
                         env.agentName = "false"
                    }
-		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
-                        prop = new Properties();
+		        checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+                prop = new Properties();
 			    FileInputStream config = new FileInputStream("${env.WORKSPACE}/Env/Config.properties");
 		        prop.load(config);
 		        prop.setProperty("environment", env.agentName);
@@ -26,7 +26,8 @@ stages {
 }
 
     stage('Checkout Testing Code') {
-           steps {     
+           steps {   
+           checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])  
            wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
            {
                 sh ' mvn -f pom.xml clean install'
