@@ -3,9 +3,7 @@ Properties prop
 
 pipeline {
 agent any 
-environment { 
-        agentName="${env.GIT_BRANCH}"
-    }
+
 stages {
         stage('Checkout Developer Code') {
            steps {	   
