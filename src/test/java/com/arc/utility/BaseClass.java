@@ -68,7 +68,10 @@ public class BaseClass {
 		
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
-			
+		System.out.println(System.getProperty("agentName"));
+		System.getenv(environment);
+		
+		
 		if((System.getenv("browserName")!=null && !System.getenv("browserName").isEmpty())
 				
 		 && System.getenv("environment")!=null && !System.getenv("environment").isEmpty() ){
