@@ -25,7 +25,7 @@ stages {
 	
 stage('Checkout Testing code') {
            steps {  
-		    checkout([$class: 'GitSCM', branches: [[name: 'master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/TestArcAPI.git']]])
+		    checkout([$class: 'GitSCM', branches: [[name: 'refs/remotes/origin/master']],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/TestArcAPI.git']]])
                     shell "mvn clean install"
 			script{
 			prop = new Properties();
