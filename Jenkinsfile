@@ -15,7 +15,7 @@ stages {
                         env.agentName = "false"
                    }
 		        
-		              
+	   }            
                 }
 		  		
             }
@@ -38,7 +38,7 @@ stage('Checkout Testing code') {
             }
         }
     }
-
+}
 
     stage('Checkout Testing Code') {
            steps {   
