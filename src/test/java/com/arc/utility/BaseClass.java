@@ -66,6 +66,7 @@ public class BaseClass {
 		data = new XlsReader(System.getProperty("user.dir") + "/TestData/ArcTest.xlsx");
 		prop = new Properties();
 		System.out.println("Env");
+		System.out.println("Env");
 		System.out.println(System.getenv("agentName"));
 		System.out.println(System.getenv("env.agentName"));
 		
