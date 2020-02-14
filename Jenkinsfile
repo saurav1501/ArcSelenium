@@ -25,7 +25,7 @@ stages {
 	
 stage('Checkout Testing code') {
            steps {  
-		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/ArcSelenium.git']]])
+		    checkout([$class: 'GitSCM', branches: [[name: env.agentName]],doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saurav1501/TestArcAPI.git']]])
                     shell "mvn clean install"
 			script{
 			prop = new Properties();
