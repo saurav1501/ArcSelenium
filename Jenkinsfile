@@ -6,13 +6,14 @@ agent any
 
 stages {
         stage('Checkout Code..') {
-           steps {
-		   when {
+		when {
                    anyOf { 
 		   branch 'master'; branch 'stg' ; 
 		   }
 	           beforeAgent true
 		   }
+                   steps {
+		   echo 'Hello World'
                    script {			    	
                    if ("${env.GIT_BRANCH}" == "master") {
                    env.agentName = "stg"
