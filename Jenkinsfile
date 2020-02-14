@@ -4,6 +4,7 @@ Properties prop
 pipeline {
 agent any 	 
 stages {
+	
         stage('Checkout Developer Code') {
            steps {	   
            script {			    	
@@ -14,12 +15,12 @@ stages {
 		    } else {
                         env.agentName = "false"
                    }
-		        
+	   }        
 	   }            
-                }
+        }
 		  		
-            }
-}
+            
+
 	
 	
 stage('Checkout Testing code') {
