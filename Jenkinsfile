@@ -4,7 +4,7 @@ Properties prop
 pipeline {
 agent any 
 environment { 
-        env.agentName=""
+        agentName=env.agentName
     }
 stages {
         stage('Checkout Developer Code') {
