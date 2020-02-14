@@ -5,7 +5,7 @@ pipeline {
 agent any 
 
 stages {
-        stage('Checkout Developer Code') {
+        stage('Checkout Developer Code..') {
            steps {	   
            script {			    	
             if ("${env.GIT_BRANCH}" == "master") {
