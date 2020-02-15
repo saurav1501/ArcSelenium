@@ -155,19 +155,24 @@ public class BaseClass {
 
 			prop.load(file1);
 			baseURL = prop.getProperty("env");
-			System.out.println(baseURL);
 			driver.get(baseURL);
 			username=prop.getProperty("userName");
 			password=prop.getProperty("Password");
+			System.out.println(baseURL);
+			System.out.println(username);
+			System.out.println(password);
+		
 		
 		}
 		else if(environment.equalsIgnoreCase("qas")) {
 			prop.load(file2);
 			baseURL = prop.getProperty("env");
-			System.out.println(baseURL);
 			driver.get(baseURL);
 			username=prop.getProperty("userName");
 			password=prop.getProperty("Password");
+			System.out.println(baseURL);
+			System.out.println(username);
+			System.out.println(password);
 		
 
 		}
@@ -178,6 +183,10 @@ public class BaseClass {
 			driver.get(baseURL);
 			username=prop.getProperty("userName");
 			password=prop.getProperty("Password");
+			System.out.println(baseURL);
+			System.out.println(username);
+			System.out.println(password);
+		
 		
 
 		}
