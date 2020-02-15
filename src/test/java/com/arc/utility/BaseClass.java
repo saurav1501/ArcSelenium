@@ -65,6 +65,8 @@ public class BaseClass {
 	public void setup() throws Exception {
 		data = new XlsReader(System.getProperty("user.dir") + "/TestData/ArcTest.xlsx");
 		prop = new Properties();
+
+		System.out.println(System.getenv("agentName"));
 			
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
@@ -78,7 +80,7 @@ public class BaseClass {
 			
 			System.out.println(browserName);
 			System.out.println(environment);
-			System.out.println(browserName);
+
 				
 		}else{
 			
@@ -125,8 +127,8 @@ public class BaseClass {
 			
 		
 		} else if (browserName.equals("chrome")) {
-			// WebDriverManager.chromedriver().setup();
-			 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/DriverFiles/chromedriver.exe");
+			 WebDriverManager.chromedriver().setup();
+			// System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/DriverFiles/chromedriver.exe");
 			 ChromeOptions options = new ChromeOptions();
              options.addArguments("headless");
              options.addArguments("window-size=1200x600");
@@ -153,15 +155,16 @@ public class BaseClass {
 
 			prop.load(file1);
 			baseURL = prop.getProperty("env");
+			System.out.println(baseURL);
 			driver.get(baseURL);
 			username=prop.getProperty("userName");
 			password=prop.getProperty("Password");
 		
 		}
 		else if(environment.equalsIgnoreCase("qas")) {
-			
 			prop.load(file2);
 			baseURL = prop.getProperty("env");
+			System.out.println(baseURL);
 			driver.get(baseURL);
 			username=prop.getProperty("userName");
 			password=prop.getProperty("Password");
@@ -213,21 +216,10 @@ public class BaseClass {
     	}
     	
 
-	
-	
 	@AfterSuite(alwaysRun = true)
 	public void end() {
 		driver.close();
 		System.out.println("EndSuite");
-	}
-	public static String getFirefoxDriverPath() {
-	      String OS = System.getProperty("os.name");
-
-	        if (OS.contains("Window")) {
-	            return System.getProperty("user.dir")+"/DriverFiles/geckodriver.exe";
-	        } else {
-	            return "/opt/Katalon_Studio/Katalon_Studio_Linux_64-6.1.1/configuration/resources/drivers/firefox_linux64/geckodriver";
-	        }
 	}
 	
 }
