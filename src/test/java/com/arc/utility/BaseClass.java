@@ -65,11 +65,9 @@ public class BaseClass {
 	public void setup() throws Exception {
 		data = new XlsReader(System.getProperty("user.dir") + "/TestData/ArcTest.xlsx");
 		prop = new Properties();
-		System.out.println("Env");
-		System.out.println("Env");
-		System.out.println(System.getenv("agentName"));
-		System.out.println(System.getenv("env.agentName"));
 		
+		System.out.println(System.getenv("agentName"));
+			
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
 			
@@ -82,11 +80,7 @@ public class BaseClass {
 			
 			System.out.println(browserName);
 			System.out.println(environment);
-			System.out.println(browserName);
-			
-			
-			
-			
+				
 		}else{
 			
 			browserName = prop.getProperty("browserName");
@@ -157,15 +151,16 @@ public class BaseClass {
 
 			prop.load(file1);
 			baseURL = prop.getProperty("env");
+			System.out.println(baseURL);
 			driver.get(baseURL);
 			username=prop.getProperty("userName");
 			password=prop.getProperty("Password");
 		
 		}
 		else if(environment.equalsIgnoreCase("qas")) {
-			
 			prop.load(file2);
 			baseURL = prop.getProperty("env");
+			System.out.println(baseURL);
 			driver.get(baseURL);
 			username=prop.getProperty("userName");
 			password=prop.getProperty("Password");
