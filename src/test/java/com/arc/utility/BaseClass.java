@@ -65,16 +65,9 @@ public class BaseClass {
 	public void setup() throws Exception {
 		data = new XlsReader(System.getProperty("user.dir") + "/TestData/ArcTest.xlsx");
 		prop = new Properties();
-		System.out.println("Env");
-		System.out.println("Env");
-		System.out.println(System.getenv("agentName"));
-		System.out.println(System.getenv("env.agentName"));
-		
+			
 		FileInputStream confi = new FileInputStream(System.getProperty("user.dir")+"/Env/Config.properties");
 		prop.load(confi);
-		System.out.println(System.getProperty("agentName"));
-		System.getenv(environment);
-		
 		
 		if((System.getenv("browserName")!=null && !System.getenv("browserName").isEmpty())
 				
@@ -86,10 +79,7 @@ public class BaseClass {
 			System.out.println(browserName);
 			System.out.println(environment);
 			System.out.println(browserName);
-			
-			
-			
-			
+				
 		}else{
 			
 			browserName = prop.getProperty("browserName");
@@ -102,7 +92,7 @@ public class BaseClass {
 		
 	    	
 
-		if (prop.getProperty("browserName").equals("firefox")) {
+		if (browserName.equals("firefox")) {
 
 			WebDriverManager.firefoxdriver().setup();
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
@@ -134,7 +124,7 @@ public class BaseClass {
 			driver = new FirefoxDriver();
 			
 		
-		} else if (prop.getProperty("browserName").equals("chrome")) {
+		} else if (browserName.equals("chrome")) {
 			// WebDriverManager.chromedriver().setup();
 			 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/DriverFiles/chromedriver.exe");
 			 ChromeOptions options = new ChromeOptions();
@@ -155,6 +145,9 @@ public class BaseClass {
 				System.getProperty("user.dir") + "/Env/Stg.properties");
 		FileInputStream file2 = new FileInputStream(
 				System.getProperty("user.dir") + "/Env/Qas.properties");
+		FileInputStream file3 = new FileInputStream(
+				System.getProperty("user.dir") + "/Env/Dev.properties");
+
 
 		if(environment.equalsIgnoreCase("stg")) {
 
@@ -168,6 +161,16 @@ public class BaseClass {
 		else if(environment.equalsIgnoreCase("qas")) {
 			
 			prop.load(file2);
+			baseURL = prop.getProperty("env");
+			driver.get(baseURL);
+			username=prop.getProperty("userName");
+			password=prop.getProperty("Password");
+		
+
+		}
+	    else if(environment.equalsIgnoreCase("dev")) {
+			
+			prop.load(file3);
 			baseURL = prop.getProperty("env");
 			driver.get(baseURL);
 			username=prop.getProperty("userName");

@@ -40,7 +40,7 @@ stages {
         }
     }
 
-stage('Publish Html Report') {
+      stage('Publish Html Report') {
             steps {
                 echo 'Extend Report'       
         }

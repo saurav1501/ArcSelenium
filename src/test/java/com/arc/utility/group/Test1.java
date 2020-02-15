@@ -5,22 +5,21 @@ import org.testng.annotations.Test;
 
 import com.arc.utility.BaseClass;
 
-public class Test1 extends BaseClass{
+public class Test1 {
 
 	@Test(groups="Sanity")
 	public void one() {
+		String GIT_BRANCH="j";
+		String environment="";
+		if(GIT_BRANCH == "master") {
+            environment = "qas";
+	    }else if(GIT_BRANCH == "stg1"){
+            environment = "stg";
+	    }else if(GIT_BRANCH == "dev1"){
+             environment = "stg";
 		
-		System.out.println("one");
-		driver.findElement(By.xpath(""));
-		driver.getWindowHandle();
-		driver.getCurrentUrl();
-		driver.switchTo().alert();
-		
-		driver.navigate().refresh();
-		driver.navigate().back();
-		driver.navigate().forward();
-		driver.navigate().to("");
-	
-		
-	}
+	    }
+		System.out.println(environment);
+
+}
 }

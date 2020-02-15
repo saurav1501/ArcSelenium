@@ -134,7 +134,6 @@ public class ExtentListeners extends BaseClass implements ITestListener {
 
 		extent.flush();
 
-
 	}
 
 }
