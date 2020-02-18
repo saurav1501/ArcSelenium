@@ -143,21 +143,21 @@
 				<configuration>
 					<filesets>
 						<fileset>
-							<directory>/var/lib/jenkins/workspace/ArcSelenium/Reports/Screenshots</directory>
+							<directory>${project.basedir}/Reports/Screenshots</directory>
 							<includes>
 								<include>**/*</include>
 							</includes>
 							<followSymlinks>false</followSymlinks>
 						</fileset>
 						<fileset>
-							<directory>/var/lib/jenkins/workspace/ArcSelenium/Downloads</directory>
+							<directory>${project.basedir}/Downloads</directory>
 							<includes>
 								<include>**/*</include>
 							</includes>
 							<followSymlinks>false</followSymlinks>
 						</fileset>
 						<fileset>
-							<directory>/var/lib/jenkins/workspace/ArcSelenium/Report</directory>
+							<directory>${project.basedir}/Report</directory>
 							<includes>
 								<include>**/*</include>
 							</includes>

@@ -9,8 +9,7 @@
 		
 		 <classes>
 			<class name="com.arc.Building.LoginIntoArcTest" />
-			  
-
+           
 		</classes>  
 	</test>
 </suite> 

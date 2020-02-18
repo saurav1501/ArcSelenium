@@ -21,8 +21,10 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import com.arc.ReusableMethods.ResuableMethodVerify;
 import com.arc.ReusableMethods.ReusableMethodsAddNewProject;
 import com.arc.ReusableMethods.ReusableMethodsLogin;
+import com.arc.ReusableMethods.ReusableMethodsNavigation;
 import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -60,7 +62,8 @@ public class BaseClass {
 	public static String browserName;
 	public static ReusableMethodsLogin login = new ReusableMethodsLogin();
 	public static ReusableMethodsAddNewProject addProject = new ReusableMethodsAddNewProject();
-	
+	public static ResuableMethodVerify verify;
+	public static ReusableMethodsNavigation navigation;
 	@BeforeSuite
 	public void setup() throws Exception {
 		data = new XlsReader(System.getProperty("user.dir") + "/TestData/ArcTest.xlsx");

@@ -11,7 +11,11 @@ public class AddNewProjectTest extends BaseClass{
 	public void AddNewProject(String AddProject,int rowNum) {
 		
 			try {
+				
 				addProject.AddNewProject(AddProject, rowNum);
+                navigation = addProject.gotoMeter();
+                navigation.verifyMeter();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);

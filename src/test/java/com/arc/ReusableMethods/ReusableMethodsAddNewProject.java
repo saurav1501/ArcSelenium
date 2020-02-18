@@ -1,10 +1,13 @@
 package com.arc.ReusableMethods;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 
 import com.arc.utility.BaseClass;
 import com.arc.utility.CommonMethod; 
@@ -51,26 +54,45 @@ public class ReusableMethodsAddNewProject extends BaseClass{
 	CommonMethod.selectdropdown("OwnerType", ownerType);
 	CommonMethod.click("organization");
 	CommonMethod.sendKeys("organization", ownerOrg);
-	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("OrgClick")));
+	Thread.sleep(1000);
+	
+	List<WebElement> elements = CommonMethod.findElements(("OwnerOrgSearch"));
+	for(WebElement element : elements)
+	{
+		if(element.getText().contains(ownerOrg));
+		element.click();
+		break;
+				
+	}
+	
+	/*wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("OrgClick")));
 	CommonMethod.click("OrgClick");
-	CommonMethod.sendKeys("OwnerEmail", ownerMail);
+*/	CommonMethod.sendKeys("OwnerEmail", ownerMail);
 	CommonMethod.selectdropdown("OwnerCountry", ownerCountry);
 	CommonMethod.sendKeys("Address", prjAddress);
 	CommonMethod.sendKeys("ProjCity", prjCity);
 	CommonMethod.selectdropdown("Country", prjCountry);
 	CommonMethod.selectdropdown("State",prjState);
 	CommonMethod.sendKeys("ZipCode", prjZip);
-	CommonMethod.scrollDown();
-	CommonMethod.click("CheckBox");
-	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("AddProject")));
-	CommonMethod.moveToElementAndClick("AddProject");
-	CommonMethod.switchToIframe("iframe");
-	CommonMethod.visibilityOf("NotificatinText", maxWait);
-	Assert.assertEquals(CommonMethod.getText("NotificatinText"), "Add a meter");
-	CommonMethod.testlog("Pass", "Project Added Successfully");
-	CommonMethod.testlog("Pass", "Project Registered  Successfully");
+	
+	/*EventFiringWebDriver eventFiringDriver = new EventFiringWebDriver(driver);
+	eventFiringDriver.executeScript("doccument.querySelector('').scrollTop=500");
+	*/	
+	
 	
 	}
 
-
+    public ReusableMethodsNavigation gotoMeter() throws IOException {
+    	CommonMethod.scrollDown();
+    	CommonMethod.click("CheckBox");
+    	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("AddProject")));
+    	CommonMethod.moveToElementAndClick("AddProject");
+    	CommonMethod.switchToIframe("iframe");
+    	CommonMethod.visibilityOf("NotificatinText", maxWait);
+		return gotoMeter();
+		
+    }
+    
+   
+   
 }
